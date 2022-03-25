@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dk-blue: hsl(233, 26%, 24%);
+  --lime-Green: hsl(136, 65%, 51%);
+  --bright-Cyan: hsl(192, 70%, 51%);
+  --gradient: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+  /* neutral */
+  --grayish-blue: hsl(233, 8%, 62%);
+  --lg-blue: hsl(220, 14%, 96%);
+  --vl-gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--lg-blue);
+}
+a:link,
+a:visited,
+p {
+  color: var(--grayish-blue);
+}
+p {
+  font-size: 1.6rem;
+}
+.container {
+  max-width: 116.5rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+.grid-1-cols {
+  grid-template-columns: 1fr;
+}
+.grid-2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+button:hover,
+.product-image-small:hover,
+.delete-icon:hover {
+  cursor: pointer;
+}
+
+.show {
+  display: block !important;
+}
+/* for bottom icon presentation */
+.none {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.btn:link,
+.btn:visited {
+  color: var(--white);
+  background: var(--gradient);
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 1.3rem 3.2rem;
+  display: inline-block;
+  border-radius: 2rem;
+  transition: all 0.3s;
+}
+.btn:hover,
+.btn:active {
+  opacity: 0.7;
+}
+
+.heading-primary {
+  font-size: 5rem;
+  margin-bottom: 4rem;
+}
+.description {
+  margin-bottom: 3rem;
+  font-size: 1.7rem;
+  line-height: 1.6;
+}
