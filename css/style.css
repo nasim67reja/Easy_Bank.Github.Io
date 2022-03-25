@@ -73,7 +73,7 @@
   box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.178);
   background-color: var(--lg-blue);
   gap: 3rem;
-  padding: 8rem 5rem;
+  padding: 7rem 5rem;
   position: relative;
   color: var(--dk-blue);
   transform: translateX(100%);
@@ -118,7 +118,6 @@ label {
   padding-left: 1rem;
   cursor: pointer;
   color: rgba(0, 0, 255, 0.595);
-  /* color: var(--dk-blue); */
 }
 
 /* Section hero */
@@ -166,4 +165,41 @@ label {
   filter: brightness(0);
   opacity: 50%;
   height: 3.2rem;
+}
+
+/* section gallery */
+.section-gallery {
+  margin-top: 14rem;
+  /* padding-top: 11rem; */
+}
+
+.section-gallery .container {
+  background-color: #fff;
+  padding: 2rem;
+  overflow: hidden;
+}
+.section-gallery .grid {
+  align-items: center;
+  gap: 3rem;
+}
+.image-gallery img {
+  height: 19rem;
+  border-radius: 5px;
+}
+.left-image {
+  transform: translateX(-3rem);
+  margin-bottom: 3rem;
+}
+.right-image {
+  transform: translateX(5rem);
+}
+.heading-secondary {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.gallery-content p {
+  text-align: center;
+  color: #343;
+  opacity: 0.9;
 }

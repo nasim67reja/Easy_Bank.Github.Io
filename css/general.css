@@ -93,7 +93,7 @@ button:hover,
   background: var(--gradient);
   text-decoration: none;
   font-size: 1.5rem;
-  padding: 1.3rem 3.2rem;
+  padding: 1.3rem 5rem;
   display: inline-block;
   border-radius: 2rem;
   transition: all 0.3s;
