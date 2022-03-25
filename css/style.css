@@ -148,3 +148,22 @@ label {
   width: 100%;
   transform: translate(10rem, -12rem);
 }
+
+/* Section Featured IN */
+.section-feature {
+  padding-top: 12rem;
+}
+.section-feature h2 {
+  text-align: center;
+  margin-bottom: 3.2rem;
+  opacity: 0.5;
+}
+.feature-logos {
+  display: flex;
+  justify-content: space-around;
+}
+.feature-logos img {
+  filter: brightness(0);
+  opacity: 50%;
+  height: 3.2rem;
+}
