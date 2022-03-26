@@ -167,20 +167,61 @@ label {
   height: 3.2rem;
 }
 
+/* /////////////////////////////// */
+/* Section Feature */
+/* /////////////////////////////// */
+.section-features {
+  margin-top: 10rem;
+  padding: 15rem 0;
+  clip-path: polygon(0 15%, 100% 5%, 100% 85%, 0 100%);
+  background-color: #fff;
+}
+.features-header {
+  max-width: 61rem;
+  margin-bottom: 7.5rem;
+}
+.section-features .heading-secondary {
+  font-size: 4rem;
+  margin-bottom: 3.5rem;
+  text-align: start;
+}
+.features-content .grid {
+  gap: 2rem;
+}
+
+.feature-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.feature-icon svg {
+  width: 8rem;
+  height: 8rem;
+}
+.circle circle {
+  fill: var(--gradient) !important;
+}
+.heading-tertiary {
+  font-size: 2rem;
+}
+.features-content p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-top: -1rem;
+}
 /* section gallery */
 .section-gallery {
   margin-top: 14rem;
   margin-bottom: 10rem;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .section-gallery .container {
   padding: 0;
-  /* background-color: #fff; */
 }
 
 .section-gallery .grid {
-  /* background-color: #fff; */
   align-items: center;
   gap: 3rem;
 }
