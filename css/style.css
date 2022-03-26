@@ -171,14 +171,16 @@ label {
 .section-gallery {
   margin-top: 14rem;
   margin-bottom: 10rem;
+  background-color: #fff;
 }
 
 .section-gallery .container {
   padding: 0;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
+
 .section-gallery .grid {
-  background-color: #fff;
+  /* background-color: #fff; */
   align-items: center;
   gap: 3rem;
 }
