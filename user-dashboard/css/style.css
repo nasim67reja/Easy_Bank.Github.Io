@@ -223,6 +223,20 @@ button {
   font-size: 1.2rem;
   color: var(--grayish-blue);
 }
+.log-out {
+  margin-top: 2rem;
+}
+.log-out p {
+  font-size: 1.6rem;
+  color: var(--grayish-blue);
+  float: right;
+  background-color: var(--lg-blue);
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+}
+#warning {
+  fill: var(--bright-red);
+}
 /* User Info */
 .user-info {
   padding: 3rem 4rem;
