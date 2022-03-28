@@ -14,6 +14,7 @@
   --lg-blue: hsl(220, 14%, 96%);
   --vl-gray: hsl(0, 0%, 98%);
   --white: hsl(0, 0%, 100%);
+  --bright-red: hsl(12, 88%, 59%);
 }
 html {
   font-size: 62.5%;
@@ -30,6 +31,12 @@ body {
 }
 .grid {
   display: grid;
+}
+.grid-2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3-cols {
+  grid-template-columns: repeat(3, 1fr);
 }
 .column {
   display: flex;
