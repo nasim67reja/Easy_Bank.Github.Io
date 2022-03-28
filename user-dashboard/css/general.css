@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dk-blue: hsl(233, 26%, 24%);
+  --lime-Green: hsl(136, 65%, 51%);
+  --bright-Cyan: hsl(192, 70%, 51%);
+  --gradient: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+  /* neutral */
+  --grayish-blue: hsl(233, 8%, 62%);
+  --lg-blue: hsl(220, 14%, 96%);
+  --vl-gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--lg-blue);
+}
+
+.container {
+  max-width: 146rem;
+  padding: 0 3rem;
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}

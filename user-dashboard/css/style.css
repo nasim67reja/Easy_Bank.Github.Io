@@ -1,0 +1,162 @@
+.dashboard {
+  padding-top: 1rem;
+  min-height: 100vh;
+  width: 100vw;
+  background: url("../images/diamond-sunset.svg");
+}
+.main {
+  min-height: 98vh;
+  grid-template-columns: 18fr 55fr 27fr;
+  grid-template-rows: 80fr 20fr;
+  /* background: var(--lg-blue); */
+  background-color: #fff;
+}
+
+/* sidebar */
+.sidebar {
+  grid-row: 1/-1;
+  background-color: var(--dk-blue);
+  padding: 4rem;
+}
+.sidebar-content {
+  justify-content: space-between;
+}
+.sidebar-header {
+  margin-bottom: 44rem;
+}
+.sidebar-logo {
+  margin-bottom: 4.5rem;
+}
+#easy-bank {
+  height: 2.3rem;
+}
+.main-nav-list {
+  list-style: none;
+}
+.main-nav-list li {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.sidebar-icon {
+  fill: rgba(255, 255, 255, 0.647);
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.3s;
+}
+li:hover .sidebar-icon {
+  fill: #fff;
+}
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.647);
+  font-size: 1.5rem;
+  transition: all 0.3s;
+}
+li:hover .main-nav-link:hover,
+li:hover .main-nav-link:active {
+  color: #fff;
+}
+/* user data */
+/* .user-data {
+   background-color: yellow; 
+} */
+.user-header {
+  padding: 3rem 4rem;
+}
+.user-header h1 {
+  font-size: 3.8rem;
+  color: var(--dk-blue);
+  margin-bottom: 4rem;
+  font-weight: 500;
+}
+.balance-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.balance-box span:first-child {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  color: var(--bright-Cyan);
+}
+.balance-box p {
+  font-size: 5.2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  color: var(--dk-blue);
+}
+.btn {
+  padding: 1rem 5rem;
+  opacity: 0.9;
+  border-radius: 5px;
+  background: var(--lg-blue);
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  color: #343;
+  border: none;
+  display: flex;
+  gap: 1.4rem;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background-color: #fff;
+  box-shadow: inset 0 0 0 3px var(--lg-blue);
+}
+/* User Info */
+.user-info {
+  padding: 3rem 4rem;
+  border-left: 1px solid rgba(192, 192, 192, 0.21);
+  /* trick border left */
+  /* box-shadow: -2px 0px 3px 0px rgba(170, 170, 170, 0.14); */
+}
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dk-blue);
+}
+.user-info h2 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+#notification {
+  width: 2.5rem;
+  cursor: pointer;
+  height: 2.5rem;
+}
+
+.user-name {
+  max-width: 20rem;
+  margin: 0 auto;
+  margin-top: 8rem;
+}
+.user-name img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.name {
+  font-size: 2.4rem;
+  color: var(--dk-blue);
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  font-weight: 500;
+}
+.email {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--grayish-blue);
+}
+/* user data chart */
+.user-data-chart {
+  grid-column: 2/-1;
+  /* background-color: red; */
+}
