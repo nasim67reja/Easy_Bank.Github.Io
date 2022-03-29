@@ -134,7 +134,7 @@ li:hover .d-nav-link:active {
 }
 .card-box .card:nth-child(2) {
   background: url(../images/bg-simplify-section-desktop.svg), var(--dk-blue);
-  background-size: 134% 102%;
+  background-size: 122% 99%;
   background-repeat: no-repeat;
   background-position: 18% 99%;
 }
@@ -267,6 +267,9 @@ button {
   border: 1px solid var(--grayish-blue);
   background-clip: content-box;
   background-color: var(--grayish-blue);
+}
+.transaction-content {
+  gap: 3rem;
 }
 .row {
   display: flex;
