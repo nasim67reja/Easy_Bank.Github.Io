@@ -4,6 +4,11 @@
   width: 100vw;
   background: url("../images/diamond-sunset.svg");
 }
+.dashboard .container {
+  max-width: 146rem;
+  padding: 0 3rem;
+  margin: 0 auto;
+}
 .main {
   min-height: 98vh;
   grid-template-columns: 18fr 55fr 27fr;
@@ -12,7 +17,7 @@
   background-color: #fff;
 }
 
-/* sidebar */
+/* 📝📝📝📝📝📝📝📝 col1: sidebar */
 .sidebar {
   grid-row: 1/-1;
   background-color: var(--dk-blue);
@@ -30,10 +35,10 @@
 #easy-bank {
   height: 2.3rem;
 }
-.main-nav-list {
+.d-nav-list {
   list-style: none;
 }
-.main-nav-list li {
+.d-nav-list li {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 4rem;
@@ -47,22 +52,21 @@
 li:hover .sidebar-icon {
   fill: #fff;
 }
-.main-nav-link:link,
-.main-nav-link:visited {
+.d-nav-link:link,
+.d-nav-link:visited {
   display: inline-block;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.647);
   font-size: 1.5rem;
   transition: all 0.3s;
 }
-li:hover .main-nav-link:hover,
-li:hover .main-nav-link:active {
+li:hover .d-nav-link:hover,
+li:hover .d-nav-link:active {
   color: #fff;
 }
-/* user data */
-/* .user-data {
-   background-color: yellow; 
-} */
+
+/*👉👉👉👉👉👉👉👉 col2: user data */
+
 .user-header {
   padding: 3rem 4rem;
 }
@@ -88,7 +92,7 @@ li:hover .main-nav-link:active {
   margin-top: 1rem;
   color: var(--dk-blue);
 }
-.btn {
+.d-btn {
   padding: 1rem 5rem;
   opacity: 0.9;
   border-radius: 5px;
@@ -104,7 +108,7 @@ li:hover .main-nav-link:active {
   font-weight: 500;
   transition: all 0.3s;
 }
-.btn:hover {
+.d-btn:hover {
   background-color: #fff;
   box-shadow: inset 0 0 0 3px var(--lg-blue);
 }
@@ -112,8 +116,8 @@ li:hover .main-nav-link:active {
   padding: 0 0 0 4rem;
 }
 .userData-content-box .grid {
-  grid-template-columns: 47fr 53fr;
-  gap: 1rem;
+  grid-template-columns: 46fr 54fr;
+  gap: 2rem;
 }
 .card-box {
   gap: 3rem;
@@ -238,54 +242,9 @@ button {
 #warning {
   fill: var(--bright-red);
 }
-/* User Info */
-.user-info {
-  padding: 3rem 4rem;
-  border-left: 1px solid rgba(192, 192, 192, 0.21);
-  /* trick border left */
-  /* box-shadow: -2px 0px 3px 0px rgba(170, 170, 170, 0.14); */
-}
-.info-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--dk-blue);
-}
-.user-info h2 {
-  font-size: 2.4rem;
-  font-weight: 500;
-}
-#notification {
-  width: 2.5rem;
-  cursor: pointer;
-  height: 2.5rem;
-}
 
-.user-name {
-  max-width: 20rem;
-  margin: 0 auto;
-  margin-top: 8rem;
-}
-.user-name img {
-  width: 20rem;
-  height: 20rem;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.name {
-  font-size: 2.4rem;
-  color: var(--dk-blue);
-  margin: 2rem 0 1rem 0;
-  text-align: center;
-  font-weight: 500;
-}
-.email {
-  display: block;
-  text-align: center;
-  font-size: 1.4rem;
-  color: var(--grayish-blue);
-}
 /* transactions */
+
 .transactions-box {
   gap: 3rem;
   padding: 1rem 2rem;
@@ -348,6 +307,55 @@ button {
 .transactions-amount {
   font-size: 1.7rem;
   color: var(--bright-Cyan);
+}
+
+/* //////////////////////////////////////////////////// */
+/*👇👇👇👇👇👇👇👇 col3: User Info */
+/* ///////////////////////////////////////////////// */
+
+.user-info {
+  padding: 3rem 4rem;
+  border-left: 1px solid rgba(192, 192, 192, 0.21);
+}
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dk-blue);
+}
+.user-info h2 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+#notification {
+  width: 2.5rem;
+  cursor: pointer;
+  height: 2.5rem;
+}
+
+.user-name {
+  max-width: 20rem;
+  margin: 0 auto;
+  margin-top: 8rem;
+}
+.user-name img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.name {
+  font-size: 2.4rem;
+  color: var(--dk-blue);
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  font-weight: 500;
+}
+.email {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--grayish-blue);
 }
 /* user data chart */
 .user-data-chart {
