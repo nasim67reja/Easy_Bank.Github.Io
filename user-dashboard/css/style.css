@@ -113,10 +113,11 @@ li:hover .main-nav-link:active {
 }
 .userData-content-box .grid {
   grid-template-columns: 47fr 53fr;
-  gap: 3rem;
+  gap: 1rem;
 }
 .card-box {
   gap: 3rem;
+  justify-content: space-between;
   overflow: hidden;
 }
 .card {
@@ -283,6 +284,70 @@ button {
   text-align: center;
   font-size: 1.4rem;
   color: var(--grayish-blue);
+}
+/* transactions */
+.transactions-box {
+  gap: 3rem;
+  padding: 1rem 2rem;
+  /* background-color: var(--lg-blue); */
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.05);
+  height: 50rem;
+  overflow-y: scroll;
+}
+.transactions-box::-webkit-scrollbar {
+  width: 0px;
+}
+.transactions-box::-webkit-scrollbar {
+  background: var(--lg-blue);
+  width: 4px;
+  height: 0px;
+}
+.transactions-box::-webkit-scrollbar-thumb {
+  height: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--grayish-blue);
+  background-clip: content-box;
+  background-color: var(--grayish-blue);
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.transactions-header h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--dk-blue);
+}
+
+.t-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.product-info {
+  display: flex;
+  gap: 1.5rem;
+}
+.logo {
+  padding: 5px 9px;
+  border-radius: 5px;
+  background-color: rgba(242, 95, 58, 0.337);
+}
+.logo svg {
+  height: 2.2rem;
+  width: 2.2rem;
+}
+.info h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.date {
+  color: var(--bright-Cyan);
+}
+.transactions-amount {
+  font-size: 1.7rem;
+  color: var(--bright-Cyan);
 }
 /* user data chart */
 .user-data-chart {
