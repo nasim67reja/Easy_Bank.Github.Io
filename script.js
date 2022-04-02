@@ -37,6 +37,8 @@ let toSvg = `
   <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
 </svg>
     `;
+let deposite = `<ion-icon name="arrow-down"></ion-icon>`;
+let withdraw = `<ion-icon name="arrow-up"></ion-icon>`;
 
 // /////////////////////////////////////////////////////////////
 
@@ -94,6 +96,16 @@ const account1 = {
       date: "Sep 19,2021 at 12.10",
       amount: 300,
     },
+    4: {
+      from: "Deposite",
+      date: "Sep 19,2021 at 12.10",
+      amount: 1300,
+    },
+    5: {
+      to: "Withdraw",
+      date: "Sep 19,2021 at 12.10",
+      amount: 300,
+    },
   },
   interestRate: 1.2, // %
   email: "nasimreja67@gmail.com",
@@ -120,6 +132,11 @@ const account2 = {
       amount: 1500,
     },
     3: {
+      from: "Deposite",
+      date: "Sep 19,2021 at 12.10",
+      amount: 1775,
+    },
+    4: {
       to: "Need",
       date: "Sep 19,2021 at 12.10",
       amount: 75,
@@ -132,7 +149,7 @@ const account2 = {
 };
 
 const account3 = {
-  owner: "Steven Thomas Williams",
+  owner: "Samiul Haque",
   movements: {
     0: {
       from: "Nasim Reja",
@@ -154,11 +171,31 @@ const account3 = {
       date: "Sep 19,2021 at 12.10",
       amount: 300,
     },
+    4: {
+      to: "Withdraw",
+      date: "Sep 18,2021 at 22.10",
+      amount: 210,
+    },
+    5: {
+      from: "Deposite",
+      date: "Sep 19,2021 at 12.10",
+      amount: 2300,
+    },
+    6: {
+      from: "Deposite",
+      date: "Sep 19,2021 at 12.10",
+      amount: 775,
+    },
+    7: {
+      to: "Amazon",
+      date: "Sep 19,2021 at 12.10",
+      amount: 300,
+    },
   },
   interestRate: 0.7,
-  email: "steventhomas62@gmail.com",
+  email: "samiulhaque62@gmail.com",
   pin: 3333,
-  image: "../images/steven.png",
+  image: "../images/samiul.png",
 };
 
 const account4 = {
@@ -170,7 +207,7 @@ const account4 = {
       amount: 240,
     },
     1: {
-      to: "Metro store",
+      to: "Withdraw",
       date: "Sep 17,2021 at 22.10",
       amount: 220,
     },
@@ -180,9 +217,19 @@ const account4 = {
       amount: 720,
     },
     3: {
-      to: "E-bay",
+      from: "Deposite",
       date: "Sep 19,2021 at 12.10",
       amount: 2100,
+    },
+    4: {
+      to: "Metro store",
+      date: "Sep 17,2021 at 22.10",
+      amount: 220,
+    },
+    5: {
+      to: "E-bay",
+      date: "Sep 19,2021 at 12.10",
+      amount: 100,
     },
   },
   interestRate: 1,
@@ -216,9 +263,15 @@ const createTransaction = function (acc) {
   transactioncontent.innerHTML = "";
   acc.amounts.forEach((el, i) => {
     let h4, svg;
-    if (el > 0) {
+    if (el > 0 && acc.movements[i].from === "Deposite") {
+      svg = deposite;
+      h4 = "from";
+    } else if (el > 0) {
       h4 = "from";
       svg = fromSvg;
+    } else if (el < 0 && acc.movements[i].to == "Withdraw") {
+      svg = withdraw;
+      h4 = "to";
     } else {
       h4 = "to";
       svg = toSvg;
@@ -239,7 +292,7 @@ const createTransaction = function (acc) {
     </div>
  `;
     transactioncontent.insertAdjacentHTML("afterbegin", html);
-    if (svg == fromSvg)
+    if (svg == fromSvg || svg == deposite)
       document.querySelector(".logo").style.backgroundColor = "#31d35cce";
   });
 };
@@ -288,7 +341,7 @@ modalBtn.addEventListener("click", function (e) {
 
 // ///////////////////////////////////////////////////////////////////
 // demo
-// createTransaction(account4);
+// createTransaction(account3);
 
 // dashMainHeader.textContent = `Hi, ${account4.owner}`;
 // userName.textContent = `${account4.owner}`;

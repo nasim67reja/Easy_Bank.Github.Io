@@ -310,6 +310,9 @@ button {
   gap: 1.5rem;
 }
 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px 9px;
   border-radius: 5px;
   background-color: rgba(242, 95, 58, 0.337);
