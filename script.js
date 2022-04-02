@@ -1,17 +1,42 @@
 "use strict";
 
-// header
-const header = document.querySelector(".container");
-// modal
+//👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇 Elements 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+///// Header :
+const header = document.querySelector(".header");
+const containerEl = document.querySelector(".container");
+// hero
+const hero = document.querySelector(".hero");
+// // Main :
+const main = document.querySelector("main");
+//// DashBoard :
+const dashboard = document.querySelector(".dashboard");
+//transaction
+const transactioncontent = document.querySelector(".transaction-content");
+
+//  modal
+const modalBtn = document.querySelector(".modal-btn");
+const text = document.querySelector("#text");
+const password = document.querySelector("#password");
 const logInBtn = document.querySelectorAll(".btn");
 const modalWindow = document.querySelector(".modal-window");
 const modalCrossBtn = document.querySelector(".modal-icon");
-// hero
-const hero = document.querySelector(".hero");
+
+//  SVG
+
+let fromSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="140" r="40" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><path d="M196,116a59.8,59.8,0,0,1,48,24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M12,140a59.8,59.8,0,0,1,48-24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M70.4,216a64.1,64.1,0,0,1,115.2,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M60,116A32,32,0,1,1,91.4,78" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M164.6,78A32,32,0,1,1,196,116" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>`;
+let toSvg = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+</svg>
+    `;
+
+// /////////////////////////////////////////////////////////////
+
+// header
 
 // 👉👉👉👉👉 calculate Hero section left margin
 function reportWindowSize() {
-  hero.style.marginLeft = getComputedStyle(header)["margin-left"];
+  hero.style.marginLeft = getComputedStyle(containerEl)["margin-left"];
 }
 reportWindowSize();
 window.addEventListener("resize", reportWindowSize);
@@ -21,15 +46,15 @@ window.addEventListener("resize", reportWindowSize);
 logInBtn.forEach((el) => {
   el.addEventListener("click", function (e) {
     modalWindow.classList.add("open-modal");
-    document.querySelector("main").style.filter = `blur(3px)`;
-    document.querySelector("header").style.filter = `blur(3px)`;
+    main.style.filter = `blur(3px)`;
+    header.style.filter = `blur(3px)`;
   });
 });
 
 modalCrossBtn.addEventListener("click", function (e) {
   modalWindow.classList.remove("open-modal");
-  document.querySelector("main").style.filter = `blur(0px)`;
-  document.querySelector("header").style.filter = `blur(0px)`;
+  main.style.filter = `blur(0px)`;
+  header.style.filter = `blur(0px)`;
 });
 
 // ///////////////////////////////////////////////////////////////////////////////////
@@ -152,23 +177,6 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-//👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇 Elements 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
-
-//transaction
-const transactioncontent = document.querySelector(".transaction-content");
-
-//  SVG
-
-let fromSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="140" r="40" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><path d="M196,116a59.8,59.8,0,0,1,48,24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M12,140a59.8,59.8,0,0,1,48-24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M70.4,216a64.1,64.1,0,0,1,115.2,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M60,116A32,32,0,1,1,91.4,78" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M164.6,78A32,32,0,1,1,196,116" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>`;
-let toSvg = `
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-         viewBox="0 0 24 24" stroke="#343" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round"
-         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.2 707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z " />
-          </svg>
-    `;
-// /////////////////////////////////////////////////////////////
-
 // create username
 
 accounts.forEach((el) => {
@@ -192,7 +200,6 @@ const createTransaction = function (acc) {
   transactioncontent.innerHTML = "";
   acc.amounts.forEach((el, i) => {
     let updateEl = acc.movements[i].from ? el : -el;
-    console.log(updateEl);
     let h4, svg;
     if (updateEl > 0) {
       h4 = "from";
@@ -217,8 +224,29 @@ const createTransaction = function (acc) {
     </div>
  `;
     transactioncontent.insertAdjacentHTML("afterbegin", html);
-    if (svg == toSvg)
+    if (svg == fromSvg)
       document.querySelector(".logo").style.backgroundColor = "#31d35cce";
   });
 };
-createTransaction(account4);
+
+// Matching userName or Implement log in
+// ///////////////////////////////////////////////////////////////////
+let currentAcc = "";
+modalBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  accounts.forEach((el) => {
+    if (el.username === text.value && el.pin === Number(password.value)) {
+      dashboard.classList.add("open");
+      currentAcc = el;
+      // hidden all element except dashboard
+      modalWindow.style.display = `none`;
+      main.style.display = `none`;
+      header.style.display = `none`;
+    }
+  });
+  text.value = "";
+  password.value = "";
+  createTransaction(currentAcc);
+});
+// console.log(currentAcc);
+// ///////////////////////////////////////////////////////////////////
