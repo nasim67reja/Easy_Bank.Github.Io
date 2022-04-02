@@ -8,11 +8,6 @@ const containerEl = document.querySelector(".container");
 const hero = document.querySelector(".hero");
 // // Main :
 const main = document.querySelector("main");
-//// DashBoard :
-const dashboard = document.querySelector(".dashboard");
-//transaction
-const transactioncontent = document.querySelector(".transaction-content");
-
 //  modal
 const modalBtn = document.querySelector(".modal-btn");
 const text = document.querySelector("#text");
@@ -20,6 +15,18 @@ const password = document.querySelector("#password");
 const logInBtn = document.querySelectorAll(".btn");
 const modalWindow = document.querySelector(".modal-window");
 const modalCrossBtn = document.querySelector(".modal-icon");
+
+//// DashBoard :
+const dashboard = document.querySelector(".dashboard");
+const dashMainHeader = document
+  .querySelector(".user-header")
+  .querySelector("h1");
+const userName = document.querySelector(".name");
+const userEmail = document.querySelector(".email");
+const userImage = document.querySelector(".user-img");
+
+//transaction
+const transactioncontent = document.querySelector(".transaction-content");
 
 //  SVG
 
@@ -88,7 +95,9 @@ const account1 = {
     },
   },
   interestRate: 1.2, // %
+  email: "nasimreja67@gmail.com",
   pin: 1111,
+  image: "../images/nasim.png",
 };
 
 const account2 = {
@@ -116,7 +125,9 @@ const account2 = {
     },
   },
   interestRate: 1.5,
+  email: "jessicadevis21@gmail.com",
   pin: 2222,
+  image: "../images/jessica.png",
 };
 
 const account3 = {
@@ -144,7 +155,9 @@ const account3 = {
     },
   },
   interestRate: 0.7,
+  email: "steventhomas62@gmail.com",
   pin: 3333,
+  image: "../images/steven.png",
 };
 
 const account4 = {
@@ -172,12 +185,14 @@ const account4 = {
     },
   },
   interestRate: 1,
+  email: "sarahsmith66@gmail.com",
   pin: 4444,
+  image: "../images/sarah.png",
 };
 
 const accounts = [account1, account2, account3, account4];
 
-// create username
+// create username,amounts
 
 accounts.forEach((el) => {
   el.username = el.owner
@@ -187,15 +202,18 @@ accounts.forEach((el) => {
     .toLowerCase();
   // create amounts
   el.amounts = [];
+  console.log(el.movements);
   for (const [key, value] of Object.entries(el.movements)) {
+    // if (el.movements[key].from) el.amounts.push(el.movements[key].amount);
+    // else el.amounts.push(-el.movements[key].amount);
     el.amounts.push(el.movements[key].amount);
   }
 });
+console.log(accounts);
 
 // ///////////////////////////////////////////////////////////////////
 // create transaction
 // ///////////////////////////////////////////////////////////////////
-
 const createTransaction = function (acc) {
   transactioncontent.innerHTML = "";
   acc.amounts.forEach((el, i) => {
@@ -228,7 +246,9 @@ const createTransaction = function (acc) {
       document.querySelector(".logo").style.backgroundColor = "#31d35cce";
   });
 };
-
+// ///////////////////////////////////////////////////////////////////
+// create total balance
+// ///////////////////////////////////////////////////////////////////
 // Matching userName or Implement log in
 // ///////////////////////////////////////////////////////////////////
 let currentAcc = "";
@@ -247,6 +267,25 @@ modalBtn.addEventListener("click", function (e) {
   text.value = "";
   password.value = "";
   createTransaction(currentAcc);
+
+  // change text
+  dashMainHeader.textContent = `Hi, ${currentAcc.owner}`;
+  userName.textContent = `${currentAcc.owner}`;
+  userEmail.textContent = `${currentAcc.email}`;
+  // change img
+  userImage.setAttribute("src", currentAcc.image);
 });
-// console.log(currentAcc);
+// demo
+createTransaction(account1);
+
+dashMainHeader.textContent = `Hi, ${account1.owner}`;
+userName.textContent = `${account2.owner}`;
+userEmail.textContent = `${account3.email}`;
+userImage.setAttribute("src", account3.image);
+
 // ///////////////////////////////////////////////////////////////////
+
+modalWindow.style.display = `none`;
+main.style.display = `none`;
+header.style.display = `none`;
+dashboard.classList.add("open");

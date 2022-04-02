@@ -107,12 +107,16 @@ li:hover .d-nav-link:active {
   margin-top: 1rem;
   color: var(--dk-blue);
 }
+.btn-box{
+  display: flex;
+  gap: 1.5rem;
+}
 .d-btn {
-  padding: 1rem 5rem;
+  padding: 0.5rem 2rem;
   opacity: 0.9;
   border-radius: 5px;
   background: var(--lg-blue);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   letter-spacing: 0.5px;
   color: #343;
   border: none;
