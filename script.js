@@ -24,6 +24,7 @@ const dashMainHeader = document
 const userName = document.querySelector(".name");
 const userEmail = document.querySelector(".email");
 const userImage = document.querySelector(".user-img");
+const allAmount = document.querySelector("#total-amount");
 
 //transaction
 const transactioncontent = document.querySelector(".transaction-content");
@@ -202,14 +203,11 @@ accounts.forEach((el) => {
     .toLowerCase();
   // create amounts
   el.amounts = [];
-  console.log(el.movements);
   for (const [key, value] of Object.entries(el.movements)) {
-    // if (el.movements[key].from) el.amounts.push(el.movements[key].amount);
-    // else el.amounts.push(-el.movements[key].amount);
-    el.amounts.push(el.movements[key].amount);
+    if (el.movements[key].from) el.amounts.push(el.movements[key].amount);
+    else el.amounts.push(-el.movements[key].amount);
   }
 });
-console.log(accounts);
 
 // ///////////////////////////////////////////////////////////////////
 // create transaction
@@ -217,9 +215,8 @@ console.log(accounts);
 const createTransaction = function (acc) {
   transactioncontent.innerHTML = "";
   acc.amounts.forEach((el, i) => {
-    let updateEl = acc.movements[i].from ? el : -el;
     let h4, svg;
-    if (updateEl > 0) {
+    if (el > 0) {
       h4 = "from";
       svg = fromSvg;
     } else {
@@ -238,7 +235,7 @@ const createTransaction = function (acc) {
          <span class="date">${acc.movements[i].date}</span>
      </div>
      </div>
-        <div class="transactions-amount">${updateEl} $</div>
+        <div class="transactions-amount">${el} $</div>
     </div>
  `;
     transactioncontent.insertAdjacentHTML("afterbegin", html);
@@ -249,6 +246,16 @@ const createTransaction = function (acc) {
 // ///////////////////////////////////////////////////////////////////
 // create total balance
 // ///////////////////////////////////////////////////////////////////
+const totalBalence = function (acc) {
+  let total = acc.reduce((acc, cur) => acc + cur);
+  total = String(total);
+
+  if (total.length > 3) {
+    let newarr = total.split("");
+    return `${newarr[0]},${newarr.slice(1).join("")}`;
+  } else return total;
+};
+
 // Matching userName or Implement log in
 // ///////////////////////////////////////////////////////////////////
 let currentAcc = "";
@@ -266,7 +273,10 @@ modalBtn.addEventListener("click", function (e) {
   });
   text.value = "";
   password.value = "";
+  // calling all function
   createTransaction(currentAcc);
+
+  allAmount.textContent = `$ ${totalBalence(currentAcc.amounts)}`;
 
   // change text
   dashMainHeader.textContent = `Hi, ${currentAcc.owner}`;
@@ -275,17 +285,18 @@ modalBtn.addEventListener("click", function (e) {
   // change img
   userImage.setAttribute("src", currentAcc.image);
 });
-// demo
-createTransaction(account1);
-
-dashMainHeader.textContent = `Hi, ${account1.owner}`;
-userName.textContent = `${account2.owner}`;
-userEmail.textContent = `${account3.email}`;
-userImage.setAttribute("src", account3.image);
 
 // ///////////////////////////////////////////////////////////////////
+// demo
+// createTransaction(account4);
 
-modalWindow.style.display = `none`;
-main.style.display = `none`;
-header.style.display = `none`;
-dashboard.classList.add("open");
+// dashMainHeader.textContent = `Hi, ${account4.owner}`;
+// userName.textContent = `${account4.owner}`;
+// userEmail.textContent = `${account4.email}`;
+// userImage.setAttribute("src", account4.image);
+// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+
+// modalWindow.style.display = `none`;
+// main.style.display = `none`;
+// header.style.display = `none`;
+// dashboard.classList.add("open");
