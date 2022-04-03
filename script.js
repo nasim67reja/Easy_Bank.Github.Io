@@ -250,7 +250,7 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-// create username,amounts
+// 👉👉👉👉👉 create username,amounts :
 
 accounts.forEach((el) => {
   el.username = el.owner
@@ -267,7 +267,7 @@ accounts.forEach((el) => {
 });
 
 // ///////////////////////////////////////////////////////////////////
-// create transaction
+//🔥🔥🔥🔥👉👉👉👉👉 create transaction
 // ///////////////////////////////////////////////////////////////////
 const createTransaction = function (acc) {
   transactioncontent.innerHTML = "";
@@ -309,20 +309,26 @@ const createTransaction = function (acc) {
       document.querySelector(".logo").style.backgroundColor = "#31d35cce";
   });
 };
+
 // ///////////////////////////////////////////////////////////////////
-// create total balance
+//👉👉👉👉👉  create total balance
 // ///////////////////////////////////////////////////////////////////
 const totalBalence = function (acc) {
   let total = acc.reduce((acc, cur) => acc + cur);
   total = String(total);
-
   if (total.length > 3) {
     let newarr = total.split("");
     return `${newarr[0]},${newarr.slice(1).join("")}`;
   } else return total;
 };
 
-// Matching userName or Implement log in
+////////////////////////////////////
+const updateUI = function () {
+  createTransaction(currentAcc);
+  allAmount.textContent = `$ ${totalBalence(currentAcc.amounts)}`;
+};
+// ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  Matching userName or Implement log in
 // ///////////////////////////////////////////////////////////////////
 let currentAcc = "";
 modalBtn.addEventListener("click", function (e) {
@@ -340,10 +346,7 @@ modalBtn.addEventListener("click", function (e) {
   text.value = "";
   password.value = "";
   // calling all function
-  createTransaction(currentAcc);
-
-  allAmount.textContent = `$ ${totalBalence(currentAcc.amounts)}`;
-
+  updateUI();
   // change text
   dashMainHeader.textContent = `Hi, ${currentAcc.owner}`;
   userName.textContent = `${currentAcc.owner}`;
@@ -351,33 +354,34 @@ modalBtn.addEventListener("click", function (e) {
   // change img
   userImage.setAttribute("src", currentAcc.image);
 });
+// ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  loan/////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
 
+inputLoanBtn.addEventListener("click", function () {
+  if (Number(inputLoan.value) > 0) {
+    let key = Object.keys(currentAcc.movements).length;
+    currentAcc.movements[key] = {
+      from: "Loan",
+      date: "Sep 17,2021 at 22.10",
+      amount: Number(inputLoan.value),
+    };
+    currentAcc.amounts.push(currentAcc.movements[key].amount);
+    updateUI();
+  }
+  inputLoan.value = "";
+});
 // ///////////////////////////////////////////////////////////////////
 // demo
 // createTransaction(account1);
 
-dashMainHeader.textContent = `Hi, ${account1.owner}`;
-userName.textContent = `${account1.owner}`;
-userEmail.textContent = `${account1.email}`;
-userImage.setAttribute("src", account1.image);
-allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+// dashMainHeader.textContent = `Hi, ${account1.owner}`;
+// userName.textContent = `${account1.owner}`;
+// userEmail.textContent = `${account1.email}`;
+// userImage.setAttribute("src", account1.image);
+// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-modalWindow.style.display = `none`;
-main.style.display = `none`;
-header.style.display = `none`;
-dashboard.classList.add("open");
-
-// loan
-inputLoanBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (Number(inputLoan.value) > 0) {
-    let key = Object.keys(account1.movements).length;
-    account1.movements[key] = {
-      to: "Loan",
-      date: "Sep 17,2021 at 22.10",
-      amount: Number(inputLoan.value),
-    };
-    console.log(account1);
-    createTransaction(account1);
-  }
-});
+// modalWindow.style.display = `none`;
+// main.style.display = `none`;
+// header.style.display = `none`;
+// dashboard.classList.add("open");
