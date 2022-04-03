@@ -25,6 +25,10 @@ const userName = document.querySelector(".name");
 const userEmail = document.querySelector(".email");
 const userImage = document.querySelector(".user-img");
 const allAmount = document.querySelector("#total-amount");
+const inputLoan = document.querySelector(".input-loan");
+const inputLoanBtn = document.querySelector(".input-btn");
+const inputId = document.querySelector(".transfer-id");
+const inputTransferAmount = document.querySelector(".transfer-amount");
 
 //transaction
 const transactioncontent = document.querySelector(".transaction-content");
@@ -39,6 +43,7 @@ let toSvg = `
     `;
 let deposite = `<ion-icon name="arrow-down"></ion-icon>`;
 let withdraw = `<ion-icon name="arrow-up"></ion-icon>`;
+let bank = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polygon points="24 96 232 96 128 32 24 96" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon><line x1="56" y1="96" x2="56" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="104" y1="96" x2="104" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="152" y1="96" x2="152" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="96" x2="200" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="32" y1="176" x2="224" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="16" y1="208" x2="240" y2="208" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>`;
 
 // /////////////////////////////////////////////////////////////
 
@@ -103,6 +108,11 @@ const account1 = {
     },
     5: {
       to: "Withdraw",
+      date: "Sep 19,2021 at 12.10",
+      amount: 300,
+    },
+    6: {
+      from: "Loan",
       date: "Sep 19,2021 at 12.10",
       amount: 300,
     },
@@ -263,7 +273,10 @@ const createTransaction = function (acc) {
   transactioncontent.innerHTML = "";
   acc.amounts.forEach((el, i) => {
     let h4, svg;
-    if (el > 0 && acc.movements[i].from === "Deposite") {
+    if (acc.movements[i].from == "Loan") {
+      svg = bank;
+      h4 = "from";
+    } else if (el > 0 && acc.movements[i].from === "Deposite") {
       svg = deposite;
       h4 = "from";
     } else if (el > 0) {
@@ -341,15 +354,30 @@ modalBtn.addEventListener("click", function (e) {
 
 // ///////////////////////////////////////////////////////////////////
 // demo
-// createTransaction(account3);
+// createTransaction(account1);
 
-// dashMainHeader.textContent = `Hi, ${account4.owner}`;
-// userName.textContent = `${account4.owner}`;
-// userEmail.textContent = `${account4.email}`;
-// userImage.setAttribute("src", account4.image);
-// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+dashMainHeader.textContent = `Hi, ${account1.owner}`;
+userName.textContent = `${account1.owner}`;
+userEmail.textContent = `${account1.email}`;
+userImage.setAttribute("src", account1.image);
+allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-// modalWindow.style.display = `none`;
-// main.style.display = `none`;
-// header.style.display = `none`;
-// dashboard.classList.add("open");
+modalWindow.style.display = `none`;
+main.style.display = `none`;
+header.style.display = `none`;
+dashboard.classList.add("open");
+
+// loan
+inputLoanBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (Number(inputLoan.value) > 0) {
+    let key = Object.keys(account1.movements).length;
+    account1.movements[key] = {
+      to: "Loan",
+      date: "Sep 17,2021 at 22.10",
+      amount: Number(inputLoan.value),
+    };
+    console.log(account1);
+    createTransaction(account1);
+  }
+});
