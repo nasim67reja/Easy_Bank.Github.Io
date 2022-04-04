@@ -381,15 +381,30 @@ btnTransfer.addEventListener("click", function (e) {
       el.username === inputId.value &&
       Number(inputTransferAmount.value) > 0
     ) {
-      let key = Object.keys(el.movements).length;
-      el.movements[key] = {
-        from: account1.owner,
+      let tokey = Object.keys(el.movements).length;
+      let fromKey = Object.keys(currentAcc.movements).length;
+      // create recieve account transaction
+      el.movements[tokey] = {
+        from: currentAcc.owner,
+        date: "Sep 17,2021 at 22.10",
+        amount:
+          Number(inputTransferAmount.value) -
+          (1.85 / 100) * Number(inputTransferAmount.value),
+      };
+      el.amounts.push(el.movements[tokey].amount);
+      // create send account transaction
+      currentAcc.movements[fromKey] = {
+        to: el.owner,
         date: "Sep 17,2021 at 22.10",
         amount: Number(inputTransferAmount.value),
       };
+      currentAcc.amounts.push(-currentAcc.movements[fromKey].amount);
+
+      updateUI();
     }
   });
-  console.log(accounts);
+  inputId.value = "";
+  inputTransferAmount.value = "";
 });
 // ///////////////////////////////////////////////////////////////////
 document.querySelector(".notification").addEventListener("click", function (e) {
