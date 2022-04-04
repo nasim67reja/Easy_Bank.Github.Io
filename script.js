@@ -356,6 +356,16 @@ modalBtn.addEventListener("click", function (e) {
   userImage.setAttribute("src", currentAcc.image);
 });
 // ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  Withdraw/////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+const withdrawMethod = document.querySelector(".payment-method");
+const options = document.querySelectorAll(".option");
+withdrawMethod.addEventListener("click", function () {
+  options.forEach((el) => {
+    el.classList.toggle("option-open");
+  });
+});
+// ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  loan/////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
 
@@ -421,15 +431,15 @@ document.querySelector(".notification").addEventListener("click", function (e) {
 // ///////////////////////////////////////////////////////////////////
 
 // demo
-// createTransaction(account1);
+createTransaction(account1);
 
-// dashMainHeader.textContent = `Hi, ${account1.owner}`;
-// userName.textContent = `${account1.owner}`;
-// userEmail.textContent = `${account1.email}`;
-// userImage.setAttribute("src", account1.image);
-// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+dashMainHeader.textContent = `Hi, ${account1.owner}`;
+userName.textContent = `${account1.owner}`;
+userEmail.textContent = `${account1.email}`;
+userImage.setAttribute("src", account1.image);
+allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-// modalWindow.style.display = `none`;
-// main.style.display = `none`;
-// header.style.display = `none`;
-// dashboard.classList.add("open");
+modalWindow.style.display = `none`;
+main.style.display = `none`;
+header.style.display = `none`;
+dashboard.classList.add("open");
