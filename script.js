@@ -29,6 +29,7 @@ const inputLoan = document.querySelector(".input-loan");
 const inputLoanBtn = document.querySelector(".input-btn");
 const inputId = document.querySelector(".transfer-id");
 const inputTransferAmount = document.querySelector(".transfer-amount");
+const btnTransfer = document.querySelector(".btn-transfer");
 
 //transaction
 const transactioncontent = document.querySelector(".transaction-content");
@@ -338,7 +339,7 @@ modalBtn.addEventListener("click", function (e) {
       dashboard.classList.add("open");
       currentAcc = el;
       // hidden all element except dashboard
-      modalWindow.style.display = `none`;
+      modalWindow.classList.remove("open-modal");
       main.style.display = `none`;
       header.style.display = `none`;
     }
@@ -372,6 +373,38 @@ inputLoanBtn.addEventListener("click", function () {
   inputLoan.value = "";
 });
 // ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  Transfer Amount//////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+btnTransfer.addEventListener("click", function (e) {
+  accounts.forEach((el) => {
+    if (
+      el.username === inputId.value &&
+      Number(inputTransferAmount.value) > 0
+    ) {
+      let key = Object.keys(el.movements).length;
+      el.movements[key] = {
+        from: account1.owner,
+        date: "Sep 17,2021 at 22.10",
+        amount: Number(inputTransferAmount.value),
+      };
+    }
+  });
+  console.log(accounts);
+});
+// ///////////////////////////////////////////////////////////////////
+document.querySelector(".notification").addEventListener("click", function (e) {
+  dashboard.classList.remove("open");
+  // hidden all element except dashboard
+
+  main.style.display = `block`;
+  header.style.display = `block`;
+
+  ///////////
+  main.style.filter = `blur(0px)`;
+  header.style.filter = `blur(0px)`;
+});
+// ///////////////////////////////////////////////////////////////////
+
 // demo
 // createTransaction(account1);
 
