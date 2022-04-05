@@ -36,7 +36,7 @@ const btnWithdraw = document.querySelector("#btn-withdraw");
 const btnWithdrawCross = document.querySelectorAll(".w-cross");
 const btnWithdrawCrossParent = document.querySelector(".relative");
 const withdrawMethod = document.querySelector(".payment-method");
-const options = document.querySelectorAll(".option");
+let options = document.querySelectorAll(".option");
 let mark = document.querySelectorAll(".mark");
 const next = document.querySelector(".next");
 const withdrawWindow = document
@@ -376,13 +376,6 @@ btnWithdraw.addEventListener("click", function (e) {
   ovarlayWithdraw.classList.add("open-withdraw");
 });
 
-options.forEach((el, i) => {
-  el.addEventListener("click", function () {
-    mark[0].classList.remove("mark-open");
-    mark[1].classList.remove("mark-open");
-    mark[i].classList.add("mark-open");
-  });
-});
 let inputNumAm;
 next.addEventListener("click", function () {
   if (mark) {
@@ -431,7 +424,7 @@ next.addEventListener("click", function () {
     currentAcc.amounts.push(-currentAcc.movements[key].amount);
     updateUI();
 
-    // make the withdraw screen as before ⚠ problem here
+    // make the withdraw screen as before
     withdrawWindow.innerHTML = "";
     const html2 = `
  <span>
@@ -440,10 +433,10 @@ next.addEventListener("click", function () {
                             <div class="payment-method ">
                                 Select a Withdraw method &rarr;
                             </div>
-                            <div class="payment-method option">
+                            <div class="payment-method option bikas">
                                 Bikas <span class="mark">✔</span>
                             </div>
-                            <div class="payment-method option">
+                            <div class="payment-method option nagad">
                                 Nagad <span class="mark">✔</span>
                             </div>
 `;
@@ -452,8 +445,18 @@ next.addEventListener("click", function () {
   }
 });
 
-// event delegation
+// event delegation  📝 very helpful:
+
 btnWithdrawCrossParent.addEventListener("click", function (e) {
+  if (e.target.classList.contains("option")) {
+    mark[0].classList.remove("mark-open");
+    mark[1].classList.remove("mark-open");
+    if (e.target.classList.contains("bikas")) {
+      mark[0].classList.add("mark-open");
+    } else if (e.target.classList.contains("nagad")) {
+      mark[1].classList.add("mark-open");
+    }
+  }
   if (e.target.classList.contains("w-cross")) {
     ovarlayWithdraw.classList.remove("open-withdraw");
   }
