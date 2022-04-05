@@ -360,6 +360,9 @@ modalBtn.addEventListener("click", function (e) {
 // ///////////////////////////////////////////////////////////////////
 const ovarlayWithdraw = document.querySelector(".ovarlay-withdraw");
 const btnWithdraw = document.querySelector("#btn-withdraw");
+const btnWithdrawCross = document.querySelectorAll(".w-cross");
+const btnWithdrawCrossParent = document.querySelector(".relative");
+
 btnWithdraw.addEventListener("click", function (e) {
   ovarlayWithdraw.classList.add("open-withdraw");
 });
@@ -396,7 +399,7 @@ next.addEventListener("click", function () {
                                 <div class="withdraw-number withdraw-amount">
                                     <div class="label">Amount</div>
                                     <input class="i-with" type="number">
-                                    <div id="available"> <span>$ 290</span> avl</div>
+                                    <div id="available"> <span>${allAmount.textContent}</span> avl</div>
                                 </div>
                             </div> 
     `;
@@ -404,6 +407,13 @@ next.addEventListener("click", function () {
     document.querySelector("#next").textContent = "Withdraw";
     next.style.backgroundColor = "hsl(12, 88%, 59%)";
     next.style.color = "white";
+  }
+});
+
+// event delegation
+btnWithdrawCrossParent.addEventListener("click", function (e) {
+  if (e.target.classList.contains("w-cross")) {
+    ovarlayWithdraw.classList.remove("open-withdraw");
   }
 });
 // ///////////////////////////////////////////////////////////////////
