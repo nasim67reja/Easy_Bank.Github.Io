@@ -376,7 +376,32 @@ btnWithdraw.addEventListener("click", function (e) {
   ovarlayWithdraw.classList.add("open-withdraw");
 });
 
+const likeBefore = function () {
+  // make the withdraw screen as before
+  withdrawWindow.innerHTML = "";
+  const html2 = `
+ <span>
+                                <ion-icon class="w-cross" name="close"></ion-icon>
+                            </span>
+                            <div class="payment-method ">
+                                Select a Withdraw method &rarr;
+                            </div>
+                            <div class="payment-method option bikas">
+                                Bikas <span class="mark">✔</span>
+                            </div>
+                            <div class="payment-method option nagad">
+                                Nagad <span class="mark">✔</span>
+                            </div>
+`;
+  withdrawWindow.insertAdjacentHTML("afterbegin", html2);
+  document.querySelector("#next").textContent = "Next";
+  next.style.backgroundColor = "#42465f";
+  next.style.color = "#9698a6";
+  mark = document.querySelectorAll(".mark");
+};
+
 let inputNumAm;
+// next btn:
 next.addEventListener("click", function () {
   if (mark) {
     if (
@@ -423,25 +448,7 @@ next.addEventListener("click", function () {
     };
     currentAcc.amounts.push(-currentAcc.movements[key].amount);
     updateUI();
-
-    // make the withdraw screen as before
-    withdrawWindow.innerHTML = "";
-    const html2 = `
- <span>
-                                <ion-icon class="w-cross" name="close"></ion-icon>
-                            </span>
-                            <div class="payment-method ">
-                                Select a Withdraw method &rarr;
-                            </div>
-                            <div class="payment-method option bikas">
-                                Bikas <span class="mark">✔</span>
-                            </div>
-                            <div class="payment-method option nagad">
-                                Nagad <span class="mark">✔</span>
-                            </div>
-`;
-    withdrawWindow.insertAdjacentHTML("afterbegin", html2);
-    mark = document.querySelectorAll(".mark");
+    likeBefore();
   }
 });
 
@@ -459,6 +466,7 @@ btnWithdrawCrossParent.addEventListener("click", function (e) {
   }
   if (e.target.classList.contains("w-cross")) {
     ovarlayWithdraw.classList.remove("open-withdraw");
+    likeBefore();
   }
 });
 // ///////////////////////////////////////////////////////////////////
@@ -513,14 +521,14 @@ btnTransfer.addEventListener("click", function (e) {
   inputTransferAmount.value = "";
 });
 // ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  Log Out//////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
 document.querySelector(".notification").addEventListener("click", function (e) {
   dashboard.classList.remove("open");
   // hidden all element except dashboard
 
   main.style.display = `block`;
   header.style.display = `block`;
-
-  ///////////
   main.style.filter = `blur(0px)`;
   header.style.filter = `blur(0px)`;
 });
@@ -539,3 +547,6 @@ document.querySelector(".notification").addEventListener("click", function (e) {
 // main.style.display = `none`;
 // header.style.display = `none`;
 // dashboard.classList.add("open");
+// ///////////////////////////////////////////////////////////////////////////////////
+// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 End of DashBoard 🔥🔥🔥🔥🔥🔥🔥🔥🔥
+// ///////////////////////////////////////////////////////////////////////////////////
