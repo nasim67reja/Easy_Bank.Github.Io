@@ -30,6 +30,18 @@ const inputLoanBtn = document.querySelector(".input-btn");
 const inputId = document.querySelector(".transfer-id");
 const inputTransferAmount = document.querySelector(".transfer-amount");
 const btnTransfer = document.querySelector(".btn-transfer");
+// withdraw btn:
+const ovarlayWithdraw = document.querySelector(".ovarlay-withdraw");
+const btnWithdraw = document.querySelector("#btn-withdraw");
+const btnWithdrawCross = document.querySelectorAll(".w-cross");
+const btnWithdrawCrossParent = document.querySelector(".relative");
+const withdrawMethod = document.querySelector(".payment-method");
+const options = document.querySelectorAll(".option");
+let mark = document.querySelectorAll(".mark");
+const next = document.querySelector(".next");
+const withdrawWindow = document
+  .querySelector("#withdraw")
+  .querySelector(".center");
 
 //transaction
 const transactioncontent = document.querySelector(".transaction-content");
@@ -314,13 +326,14 @@ const createTransaction = function (acc) {
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  create total balance
 // ///////////////////////////////////////////////////////////////////
+let total;
 const totalBalence = function (acc) {
-  let total = acc.reduce((acc, cur) => acc + cur);
-  total = String(total);
-  if (total.length > 3) {
-    let newarr = total.split("");
+  total = acc.reduce((acc, cur) => acc + cur);
+  let totalL = String(total);
+  if (totalL.length > 3) {
+    let newarr = totalL.split("");
     return `${newarr[0]},${newarr.slice(1).join("")}`;
-  } else return total;
+  } else return totalL;
 };
 
 ////////////////////////////////////
@@ -358,22 +371,11 @@ modalBtn.addEventListener("click", function (e) {
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Withdraw/////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
-const ovarlayWithdraw = document.querySelector(".ovarlay-withdraw");
-const btnWithdraw = document.querySelector("#btn-withdraw");
-const btnWithdrawCross = document.querySelectorAll(".w-cross");
-const btnWithdrawCrossParent = document.querySelector(".relative");
 
 btnWithdraw.addEventListener("click", function (e) {
   ovarlayWithdraw.classList.add("open-withdraw");
 });
 
-const withdrawMethod = document.querySelector(".payment-method");
-const options = document.querySelectorAll(".option");
-const mark = document.querySelectorAll(".mark");
-const next = document.querySelector(".next");
-const withdrawWindow = document
-  .querySelector("#withdraw")
-  .querySelector(".center");
 options.forEach((el, i) => {
   el.addEventListener("click", function () {
     mark[0].classList.remove("mark-open");
@@ -381,13 +383,16 @@ options.forEach((el, i) => {
     mark[i].classList.add("mark-open");
   });
 });
+let inputNumAm;
 next.addEventListener("click", function () {
-  if (
-    mark[0].classList.contains("mark-open") ||
-    mark[1].classList.contains("mark-open")
-  ) {
-    withdrawWindow.innerHTML = "";
-    const html = `
+  if (mark) {
+    if (
+      mark[0].classList.contains("mark-open") ||
+      mark[1].classList.contains("mark-open")
+    ) {
+      mark = null;
+      withdrawWindow.innerHTML = "";
+      const html = `
     <span>
                                 <ion-icon class="w-cross" name="close"></ion-icon>
                             </span>
@@ -403,10 +408,47 @@ next.addEventListener("click", function () {
                                 </div>
                             </div> 
     `;
-    withdrawWindow.insertAdjacentHTML("afterbegin", html);
-    document.querySelector("#next").textContent = "Withdraw";
-    next.style.backgroundColor = "hsl(12, 88%, 59%)";
-    next.style.color = "white";
+      withdrawWindow.insertAdjacentHTML("afterbegin", html);
+      document.querySelector("#next").textContent = "Withdraw";
+      next.style.backgroundColor = "hsl(12, 88%, 59%)";
+      next.style.color = "white";
+      inputNumAm = document.querySelectorAll(".i-with");
+    }
+  }
+  // create withdraw transaction & calculate total balance
+  if (
+    inputNumAm[0].value.length === 11 &&
+    Number(inputNumAm[1].value) > 0 &&
+    Number(inputNumAm[1].value) < total
+  ) {
+    ovarlayWithdraw.classList.remove("open-withdraw");
+    let key = Object.keys(currentAcc.movements).length;
+    currentAcc.movements[key] = {
+      to: "Withdraw",
+      date: "Sep 19,2021 at 12.10",
+      amount: Number(inputNumAm[1].value),
+    };
+    currentAcc.amounts.push(-currentAcc.movements[key].amount);
+    updateUI();
+
+    // make the withdraw screen as before ⚠ problem here
+    withdrawWindow.innerHTML = "";
+    const html2 = `
+ <span>
+                                <ion-icon class="w-cross" name="close"></ion-icon>
+                            </span>
+                            <div class="payment-method ">
+                                Select a Withdraw method &rarr;
+                            </div>
+                            <div class="payment-method option">
+                                Bikas <span class="mark">✔</span>
+                            </div>
+                            <div class="payment-method option">
+                                Nagad <span class="mark">✔</span>
+                            </div>
+`;
+    withdrawWindow.insertAdjacentHTML("afterbegin", html2);
+    mark = document.querySelectorAll(".mark");
   }
 });
 
@@ -482,15 +524,15 @@ document.querySelector(".notification").addEventListener("click", function (e) {
 // ///////////////////////////////////////////////////////////////////
 
 // demo
-createTransaction(account1);
+// createTransaction(account1);
 
-dashMainHeader.textContent = `Hi, ${account1.owner}`;
-userName.textContent = `${account1.owner}`;
-userEmail.textContent = `${account1.email}`;
-userImage.setAttribute("src", account1.image);
-allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+// dashMainHeader.textContent = `Hi, ${account1.owner}`;
+// userName.textContent = `${account1.owner}`;
+// userEmail.textContent = `${account1.email}`;
+// userImage.setAttribute("src", account1.image);
+// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-modalWindow.style.display = `none`;
-main.style.display = `none`;
-header.style.display = `none`;
-dashboard.classList.add("open");
+// modalWindow.style.display = `none`;
+// main.style.display = `none`;
+// header.style.display = `none`;
+// dashboard.classList.add("open");
