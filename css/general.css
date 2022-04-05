@@ -114,3 +114,10 @@ button:hover,
   font-size: 1.7rem;
   line-height: 1.6;
 }
+.gap{
+  gap: 2rem;
+}
+
+.relative{
+  position: relative;
+}

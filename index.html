@@ -326,7 +326,7 @@
                                 <p id="total-amount">$ 3,048</p>
                             </div>
                             <div class="btn-box">
-                                <button class="d-btn">
+                                <button class="d-btn" id="btn-withdraw">
                                     <ion-icon name="arrow-up"></ion-icon>
                                     <span> Withdraw </span>
                                 </button>
@@ -468,19 +468,22 @@
                 <!-- //////////////////////////////////////////////////////// -->
                 <div class="ovarlay-withdraw center">
                     <div id="withdraw">
-                        <div class="center">
+                        <div class="center relative">
+                            <span>
+                                <ion-icon class="w-cross" name="close"></ion-icon>
+                            </span>
                             <div class="payment-method ">
-                                Select a Withdraw method &darr;
+                                Select a Withdraw method &rarr;
                             </div>
                             <div class="payment-method option">
                                 Bikas <span class="mark">✔</span>
                             </div>
                             <div class="payment-method option">
-                                Nogod <span class="mark">✔</span>
+                                Nagad <span class="mark">✔</span>
                             </div>
                         </div>
 
-                        <div class="payment-method next">next &rarr;</div>
+                        <div class="payment-method next"> <span id="next">Next</span> <span> &rarr;</span></div>
                     </div>
 
                 </div>

@@ -407,15 +407,29 @@ button {
   min-height: 100vh;
   width: 100%;
   background-color: rgba(45, 49, 77, 0.7);
-
+  /*  */
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateX(-100%);
+}
+.open-withdraw{
+  transition: all 0.5s;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0%);
 }
 #withdraw{
-  min-height: 100vh;
+  min-height: 96vh;
+  border-radius: 1rem;
   background-color: var(--dk-blue);
   width: 50rem;
-  position: relative;
-  flex-direction: column;
-  gap: 3rem;
+ display: grid;
+ grid-template-rows: 95fr 5fr;
+}
+#withdraw .center{
+  gap: 1rem;
 }
 .payment-method{
   background-color: #42465f;
@@ -424,25 +438,54 @@ button {
   color: #9698a6;
   cursor: pointer;
 }
-.option{
-  transform: translateY(-8rem);
+.mark{
   opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
 }
-.option-open{
-  transition: all 0.5s;
-  transform: translateY(0rem);
+.mark-open{
+  transition: all 0.3s;
   opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
+}
+.next{
+  text-align: center;
+}
+.next span{
+  margin-left: 1rem;
+}
+.withdraw-info{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+.withdraw-number{
+  color: #9698a6;
+  width: 100%;
+}
+.label{
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.i-with{
+  width: 100%;
+  border: none;
+  background-color: #42465f;
+  padding: 1.6rem 0.2rem;
+  caret-color : #FF0000;
+  color: #9698a6;
+  font-size: 1.6rem;
+}
+#available{
+  text-align: end;
+  margin-top: 1rem;
+  font-size: 1.4rem;
 }
 
-.next{
+.w-cross{
+  cursor: pointer;
+  fill: #9698a6;
+  height: 3rem;
+  width: 3rem;
   position: absolute;
-  /* align-self: end;
-  margin-right: 3rem; */
-  bottom: 2rem;
   right: 1rem;
-  padding: 0.5rem 3rem ;
+  top: 1rem;
 }

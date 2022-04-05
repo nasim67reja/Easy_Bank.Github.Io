@@ -358,12 +358,53 @@ modalBtn.addEventListener("click", function (e) {
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Withdraw/////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
+const ovarlayWithdraw = document.querySelector(".ovarlay-withdraw");
+const btnWithdraw = document.querySelector("#btn-withdraw");
+btnWithdraw.addEventListener("click", function (e) {
+  ovarlayWithdraw.classList.add("open-withdraw");
+});
+
 const withdrawMethod = document.querySelector(".payment-method");
 const options = document.querySelectorAll(".option");
-withdrawMethod.addEventListener("click", function () {
-  options.forEach((el) => {
-    el.classList.toggle("option-open");
+const mark = document.querySelectorAll(".mark");
+const next = document.querySelector(".next");
+const withdrawWindow = document
+  .querySelector("#withdraw")
+  .querySelector(".center");
+options.forEach((el, i) => {
+  el.addEventListener("click", function () {
+    mark[0].classList.remove("mark-open");
+    mark[1].classList.remove("mark-open");
+    mark[i].classList.add("mark-open");
   });
+});
+next.addEventListener("click", function () {
+  if (
+    mark[0].classList.contains("mark-open") ||
+    mark[1].classList.contains("mark-open")
+  ) {
+    withdrawWindow.innerHTML = "";
+    const html = `
+    <span>
+                                <ion-icon class="w-cross" name="close"></ion-icon>
+                            </span>
+  <div class="withdraw-info">
+                                <div class="withdraw-number phone-number">
+                                    <div class="label">Phone Number</div>
+                                    <input class="i-with" type="number">
+                                </div>
+                                <div class="withdraw-number withdraw-amount">
+                                    <div class="label">Amount</div>
+                                    <input class="i-with" type="number">
+                                    <div id="available"> <span>$ 290</span> avl</div>
+                                </div>
+                            </div> 
+    `;
+    withdrawWindow.insertAdjacentHTML("afterbegin", html);
+    document.querySelector("#next").textContent = "Withdraw";
+    next.style.backgroundColor = "hsl(12, 88%, 59%)";
+    next.style.color = "white";
+  }
 });
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  loan/////////////////////////////////////////////////
