@@ -427,11 +427,27 @@ label {
   font-weight: 500;
 }
 .links{
-  gap: 5px;
+  gap: 6px;
 }
 .social-icon{
   border: 1px solid silver;
-  padding:0.3rem 3rem;
+  border-radius: 2px;
+  padding:0.5rem 2rem;
   cursor: pointer;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-transform: uppercase;
+}
+.s-i-icon{
+  height: 2rem;
+  width: 2rem;
+  fill: var(--dk-blue);
+
+}
+.social-icon span{
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--grayish-blue);
 }
