@@ -133,7 +133,7 @@ const account1 = {
   interestRate: 1.2, // %
   email: "nasimreja67@gmail.com",
   pin: 1111,
-  image: "../images/nasim.png",
+  image: "images/nasim.png",
 };
 
 const account2 = {
@@ -550,3 +550,28 @@ document.querySelector(".notification").addEventListener("click", function (e) {
 // ///////////////////////////////////////////////////////////////////////////////////
 // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 End of DashBoard 🔥🔥🔥🔥🔥🔥🔥🔥🔥
 // ///////////////////////////////////////////////////////////////////////////////////
+
+// POP UP
+
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations__content");
+
+tabsContainer.addEventListener("click", function (e) {
+  tabs.forEach((t) => t.classList.remove("operations__tab-active"));
+  // console.log(e.target.dataset.tab);
+  const clicked = e.target.closest(".operations__tab");
+  // Guard clause
+  if (!clicked) return;
+
+  // Remove active classes
+  tabsContent.forEach((c) => c.classList.remove("operations__content--active"));
+
+  // // Activate tab
+  clicked.classList.add("operations__tab-active");
+
+  // // Activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
+});

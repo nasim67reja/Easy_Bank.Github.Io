@@ -330,3 +330,49 @@ label {
 }
 
 
+/* pop up */
+.pop-up{
+  min-height: 100vh;
+  width: 100%;
+  border: 5px solid black;
+}
+
+.sign-up-box{
+  border: 1px solid black;
+  width: 50rem;
+  height: 60rem;
+}
+.sign-up-content{
+  max-width: 48rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+/* tab */
+.operations__tab-container{
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.operations .btn{
+  border: none;
+  border-bottom: 1px solid silver;
+  padding: 2rem 4rem;
+  opacity: 0.8;
+  color: var(--dk-blue);
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.operations__tab-active{
+  border: 1px solid silver !important;
+  border-bottom: none !important;
+  opacity: 1 !important;
+}
+
+.operations__content{
+  display: none;
+}
+.operations__content--active{
+  display: block;
+}
