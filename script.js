@@ -18,6 +18,11 @@ const modalCrossBtn = document.querySelector(".modal-icon");
 const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container");
 const tabsContent = document.querySelectorAll(".operations__content");
+const inputfirstName = document.querySelector("#f-name");
+const inputlastName = document.querySelector("#l-name");
+const inputEmail = document.querySelector("#c-email");
+const inputPassword = document.querySelector("#c-password");
+const btnCreateAcc = document.querySelector("#create-account");
 
 //// DashBoard :
 const dashboard = document.querySelector(".dashboard");
@@ -294,6 +299,47 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
+// ///////////////////////////////////////////////////////////////////
+//🔥🔥🔥🔥👉👉👉👉👉 create New account
+// ///////////////////////////////////////////////////////////////////
+let currentAcc = "";
+// ekhane kaj baki input field clear kora
+btnCreateAcc.addEventListener("click", function (e) {
+  e.preventDefault();
+  let [fName, lName, email, password] = [
+    inputfirstName.value,
+    inputlastName.value,
+    inputEmail.value,
+    inputPassword.value,
+  ];
+  let totalName = `${fName} ${lName}`;
+  let username = `${fName[0].toLowerCase()}${lName[0].toLowerCase()}`;
+
+  if (fName && lName && email && password) {
+    // dynamic variable:
+    let pageNumber = accounts.length + 1;
+    window["account" + pageNumber] = {
+      owner: totalName,
+      amounts: [1000],
+      movements: {
+        0: {
+          from: "Deposite",
+          date: "Sep 19,2021 at 12.10",
+          amount: 1000,
+        },
+      },
+      email: email,
+      pin: Number(password),
+      image: "images/avatar-male.png",
+      username: username,
+    };
+    currentAcc = window["account" + pageNumber];
+    accounts.push(currentAcc);
+    activeDashboard();
+    updateUI();
+  }
+});
+
 // 👉👉👉👉👉 create username,amounts :
 
 accounts.forEach((el) => {
@@ -313,7 +359,7 @@ accounts.forEach((el) => {
 // ///////////////////////////////////////////////////////////////////
 //🔥🔥🔥🔥👉👉👉👉👉 create transaction
 // ///////////////////////////////////////////////////////////////////
-const createTransaction = function (acc) {
+function createTransaction(acc) {
   transactioncontent.innerHTML = "";
   acc.amounts.forEach((el, i) => {
     let h4, svg;
@@ -352,52 +398,53 @@ const createTransaction = function (acc) {
     if (svg == fromSvg || svg == deposite)
       document.querySelector(".logo").style.backgroundColor = "#31d35cce";
   });
-};
+}
 
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  create total balance
 // ///////////////////////////////////////////////////////////////////
 let total;
-const totalBalence = function (acc) {
+function totalBalence(acc) {
   total = acc.reduce((acc, cur) => acc + cur);
   let totalL = String(total);
   if (totalL.length > 3) {
     let newarr = totalL.split("");
     return `${newarr[0]},${newarr.slice(1).join("")}`;
   } else return totalL;
-};
-
+}
 ////////////////////////////////////
-const updateUI = function () {
+function updateUI() {
   createTransaction(currentAcc);
   allAmount.textContent = `$ ${totalBalence(currentAcc.amounts)}`;
-};
+
+  dashMainHeader.textContent = `Hi, ${currentAcc.owner}`;
+  userName.textContent = `${currentAcc.owner}`;
+  userEmail.textContent = `${currentAcc.email}`;
+  // change img
+  userImage.setAttribute("src", currentAcc.image);
+}
+function activeDashboard() {
+  dashboard.classList.add("open");
+  //       // hidden all element except dashboard
+  modalWindow.classList.remove("open-modal");
+  main.style.display = `none`;
+  header.style.display = `none`;
+}
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Matching userName or Implement log in
 // ///////////////////////////////////////////////////////////////////
-let currentAcc = "";
 btnSignIn.addEventListener("click", function (e) {
   e.preventDefault();
   accounts.forEach((el) => {
     if (el.username === text.value && el.pin === Number(password.value)) {
-      dashboard.classList.add("open");
       currentAcc = el;
-      //       // hidden all element except dashboard
-      modalWindow.classList.remove("open-modal");
-      main.style.display = `none`;
-      header.style.display = `none`;
+      activeDashboard();
     }
   });
   text.value = "";
   password.value = "";
   // calling all function
   updateUI();
-  // change text
-  dashMainHeader.textContent = `Hi, ${currentAcc.owner}`;
-  userName.textContent = `${currentAcc.owner}`;
-  userEmail.textContent = `${currentAcc.email}`;
-  // change img
-  userImage.setAttribute("src", currentAcc.image);
 });
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Withdraw/////////////////////////////////////////////////
