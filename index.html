@@ -58,9 +58,9 @@
         </div>
     </header>
     <!-- //////////////////////////////// -->
-    <div class="modal-window center">
+    <!-- <div class="modal-window center">
         <div class="modal column">
-            <!-- cross icon -->
+             cross icon 
             <div class="modal-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19">
                     <g fill="#2D314D" fill-rule="evenodd">
@@ -69,7 +69,7 @@
                     </g>
                 </svg>
             </div>
-            <!-- ///////// -->
+            ///////// 
             <div class="modal-username">
                 <label>username:</label>
                 <input id="text" type="text">
@@ -82,7 +82,7 @@
             <button class="modal-btn" type="submit">Log In</button>
             <div class="modal-text">Don't have any account? <span class="create-account">Create account</span> </div>
         </div>
-    </div>
+    </div> -->
     <!-- //////////////////////////////// -->
 
 
@@ -240,32 +240,78 @@
     </main>
 
     <div class="pop-up center">
+
         <div class="sign-up-box">
+            <!-- cross button -->
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19">
+                    <g fill="#2D314D" fill-rule="evenodd">
+                        <path d="M.868.661l16.97 16.97-.706.708L.162 1.369z" />
+                        <path d="M.161 17.632L17.131.662l.708.706-16.97 16.97z" />
+                    </g>
+                </svg>
+            </div>
             <div class="sign-up-content">
                 <div class="operations">
                     <div class="operations__tab-container">
-                        <button class="btn operations__tab operations__tab--1 " data-tab="1">
+
+                        <button class="operation-btn operations__tab operations__tab--1 " data-tab="1">
                             New to Easy Bank
                         </button>
-                        <button class="btn operations__tab operations__tab--2 operations__tab-active" data-tab="2">
+                        <button class="operation-btn operations__tab operations__tab--2 operations__tab-active"
+                            data-tab="2">
                             Already Registered ?
                         </button>
                     </div>
+                    <!-- content 1 -->
                     <div class="operations__content  operations__content--1 ">
-                        content 1
+                        <div class="column p-i">
+                            <form class="column">
+                                <div class="n-popup-input-box1 ip">
+                                    <div>
+                                        <div class="popup-username">Fast Name</div>
+                                        <input type="text" class="username-input" required>
+                                    </div>
+                                    <div>
+                                        <div class="popup-username">Last Name</div>
+                                        <input type="text" class="username-input" required>
+                                    </div>
+                                </div>
+                                <div class="popup-input-box2 ip">
+                                    <div class="popup-username">Email</div>
+                                    <input type="email" class="username-input" required>
+                                </div>
+                                <div class="popup-input-box2 ip">
+                                    <div class="popup-username">Password</div>
+                                    <input type="password" class="username-input">
+                                </div>
+                                <div class="popup-input-box4 ip ">
+                                    <label for="outdoor"><input id="outdoor" type="checkbox" name="indoor-outdoor"
+                                            required>
+                                        Deposite all the required money</label>
+                                </div>
+
+                                <button type="submit" class="btn-signin">create account</button>
+                            </form>
+                            <div class="note">⚠ For creating account you have to deposite $1000</div>
+                        </div>
                     </div>
+                    <!-- content 2 -->
                     <div class="operations__content operations__content--2 operations__content--active">
                         <div class="column p-i">
                             <h3>SIGN IN WITH USERNAME</h3>
-                            <div class="popup-input-box1 ip">
-                                <div class="popup-username">USERNAME</div>
-                                <input type="text" class="username-input">
-                            </div>
-                            <div class="popup-input-box2 ip">
-                                <div class="popup-username">PASSWORD</div>
-                                <input type="password" class="username-input">
-                            </div>
-                            <button class="btn-signin">SIGN IN</button>
+                            <form class="column">
+                                <div class="popup-input-box1 ip">
+                                    <div class="popup-username">USERNAME</div>
+                                    <input type="text" class="username-input" id="text">
+                                </div>
+                                <div class="popup-input-box2 ip">
+                                    <div class="popup-username">PASSWORD</div>
+                                    <input type="password" class="username-input" id="password">
+                                </div>
+                                <button type="submit" class="btn-signin" id="btn-sign-in">SIGN IN</button>
+                            </form>
+
                             <span class="f-p">Forgot password ?</span>
                             <div class="or">OR</div>
                             <div class="link-parent">

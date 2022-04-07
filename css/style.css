@@ -45,79 +45,223 @@
   box-shadow: 0px 3.7rem 0 -6px var(--lime-Green);
 }
 /* Modal Window */
-.modal-window {
+.pop-up {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  background-color: rgba(45, 49, 77, 0.596);
+  min-height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.578);
-  z-index: 100;
   /* hidden trick */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
+
 .open-modal {
   transition: all 0.5s;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
-.open-modal .modal {
-  transition: all 0.5s;
-  transform: translateX(0%) !important;
+
+.open-modal .sign-up-box {
+  transform: translateY(0rem) !important;
+  transition: all .5s;
 }
-.modal {
+
+.sign-up-box {
+  background-color: white;
+  width: 50rem;
+  height: 60rem;
   border-radius: 5px;
-  box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.178);
-  background-color: var(--lg-blue);
-  gap: 3rem;
-  padding: 7rem 5rem;
+  transform: translateY(-4rem);
   position: relative;
-  color: var(--dk-blue);
-  transform: translateX(100%);
 }
+
 .modal-icon {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  border-radius: 50%;
+  top: -3rem;
+  right: -3rem;
   cursor: pointer;
+  padding: 0.4rem 0.5rem;
+  background-color: var(--lg-blue);
+  border-radius: 5px;
 }
+
 .modal-icon svg {
-  width: 2rem;
+  width: 1.6rem;
 }
+
 .modal-icon g {
   fill: var(--dk-blue);
 }
-label {
-  font-size: 1.6rem;
-  padding-right: 2rem;
+
+.sign-up-content {
+  max-width: 48rem;
+  padding: 0 2rem;
+  margin: 0 auto;
 }
-.modal input {
-  padding: 0.6rem 1.4rem;
-  font-size: 1.6rem;
-  border: 1px solid var(--lg-blue);
+
+/* .pop-up */
+.operations__tab-container {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.modal-btn {
-  margin-top: 1rem;
+
+.operation-btn {
   border: none;
-  background: var(--gradient);
-  color: #fff;
-  padding: 1rem 4rem;
-  width: fit-content;
-  align-self: center;
-  border-radius: 5px;
+  border-bottom: 1px solid silver;
+  padding: 2rem 4rem;
+  opacity: 0.8;
+  color: var(--dk-blue);
+  font-weight: 700;
+  background-color: transparent;
 }
-.modal-text {
-  font-size: 1.5rem;
+
+.operations__tab-active {
+  box-shadow: inset 0 1px 0 1px silver;
+  border-bottom: none !important;
+  opacity: 1 !important;
+}
+
+.operations__content {
+  display: none;
+}
+
+.operations__content--active {
+  display: block;
+}
+
+.operations .column {
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.operations h3 {
+  align-self: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.ip {
+  margin-bottom: 2rem;
+}
+
+.popup-username {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--dk-blue);
+}
+
+.username-input {
+  border: 2px solid var(--lg-blue);
+  padding: 1rem 3rem;
+  border-bottom: 3px solid var(--lg-blue);
+}
+
+.btn-signin {
+  width: 100%;
+  padding: 1rem 1rem;
+  color: #fff;
+  background-color: var(--dk-blue);
+  border: none;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.btn-signin:hover {
+  opacity: 0.8;
+  transform: all 0.5s;
+}
+
+.f-p {
+  color: blueviolet;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.or {
   color: var(--grayish-blue);
 }
-.create-account {
-  padding-left: 1rem;
+
+.link-parent h4 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.links {
+  gap: 6px;
+}
+
+.social-icon {
+  border: 1px solid silver;
+  border-radius: 2px;
+  padding: 0.5rem 2rem;
   cursor: pointer;
-  color: rgba(0, 0, 255, 0.595);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-transform: uppercase;
+}
+
+.social-icon:hover {
+  transition: all 0.5s;
+  opacity: 0.6;
+}
+
+.s-i-icon {
+  height: 2rem;
+  width: 2rem;
+  fill: var(--dk-blue);
+
+}
+
+.social-icon span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--grayish-blue);
+}
+
+/* new to easy bank */
+.n-popup-input-box1 {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.n-popup-input-box1 .username-input {
+  padding: 1rem;
+}
+
+.popup-input-box2,
+.popup-input-box4 {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.popup-input-box2 .username-input {
+  width: 100%;
+}
+
+.popup-input-box4 label {
+  font-size: 1.4rem;
+  color: var(--grayish-blue);
+  cursor: pointer;
+}
+
+.note {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  background-color: var(--lg-blue);
+  align-self: flex-start;
+  margin: 1rem 0 0 1.7rem;
 }
 
 /* Section hero */
@@ -331,123 +475,3 @@ label {
 
 
 /* pop up */
-.pop-up{
-  min-height: 100vh;
-  width: 100%;
-  border: 5px solid black;
-}
-
-.sign-up-box{
-  background-color: white;
-  width: 50rem;
-  height: 60rem;
-}
-.sign-up-content{
-  max-width: 48rem;
-  padding: 0 2rem;
-  margin: 0 auto;
-}
-/* tab */
-.operations__tab-container{
-  margin-top: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.operations .btn{
-  border: none;
-  border-bottom: 1px solid silver;
-  padding: 2rem 4rem;
-  opacity: 0.8;
-  color: var(--dk-blue);
-  font-weight: 700;
-  background-color: transparent;
-}
-
-.operations__tab-active{
-  box-shadow:inset 0 1px 0 1px silver;
-  border-bottom: none !important;
-  opacity: 1 !important;
-}
-
-.operations__content{
-  display: none;
-}
-.operations__content--active{
-  display: block;
-}
-.operations .column{
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.operations h3{
-  align-self: center;
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
-}
-.ip{
-  align-self: center;
-  margin-bottom: 2rem;
-}
-.popup-username{
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-  color: var(--dk-blue);
-}
-.username-input{
-  border: 2px solid var(--lg-blue);
-  padding: 1rem 3rem;
-  border-bottom: 3px solid var(--lg-blue);
-}
-.btn-signin{
-  width: 53%;
-  padding: 1rem 1rem;
-  color: #fff;
-  background-color: var(--dk-blue);
-  border: none;
-  border-radius: 5px;
-  margin: 1rem 0;
-}.btn-signin:hover{
-  opacity: 0.8;
-  transform: all 0.5s;
-}
-.f-p{
-  color: blueviolet;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-.or{
-  color: var(--grayish-blue);
-}
-.link-parent h4{
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-weight: 500;
-}
-.links{
-  gap: 6px;
-}
-.social-icon{
-  border: 1px solid silver;
-  border-radius: 2px;
-  padding:0.5rem 2rem;
-  cursor: pointer;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  text-transform: uppercase;
-}
-.s-i-icon{
-  height: 2rem;
-  width: 2rem;
-  fill: var(--dk-blue);
-
-}
-.social-icon span{
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--grayish-blue);
-}

@@ -9,12 +9,15 @@ const hero = document.querySelector(".hero");
 // // Main :
 const main = document.querySelector("main");
 //  modal
-const modalBtn = document.querySelector(".modal-btn");
+const btnSignIn = document.querySelector("#btn-sign-in");
 const text = document.querySelector("#text");
 const password = document.querySelector("#password");
 const logInBtn = document.querySelectorAll(".btn");
-const modalWindow = document.querySelector(".modal-window");
+const modalWindow = document.querySelector(".pop-up");
 const modalCrossBtn = document.querySelector(".modal-icon");
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations__content");
 
 //// DashBoard :
 const dashboard = document.querySelector(".dashboard");
@@ -48,7 +51,7 @@ const transactioncontent = document.querySelector(".transaction-content");
 
 //  SVG
 
-let fromSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="140" r="40" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><path d="M196,116a59.8,59.8,0,0,1,48,24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M12,140a59.8,59.8,0,0,1,48-24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M70.4,216a64.1,64.1,0,0,1,115.2,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M60,116A32,32,0,1,1,91.4,78" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M164.6,78A32,32,0,1,1,196,116" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>`;
+let fromSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="192"   height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256"   height="256" fill="none"></rect><circle cx="128" cy="140" r="40"   fill="none" stroke="#000000" stroke-linecap="round"   stroke-linejoin="round" stroke-width="16"></circle><path d="M196,  116a59.8,59.8,0,0,1,48,24" fill="none" stroke="#000000"   stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></  path><path d="M12,140a59.8,59.8,0,0,1,48-24" fill="none"   stroke="#000000" stroke-linecap="round" stroke-linejoin="round"   stroke-width="16"></path><path d="M70.4,216a64.1,64.1,0,0,1,115.2,0"   fill="none" stroke="#000000" stroke-linecap="round"   stroke-linejoin="round" stroke-width="16"></path><path d="M60,116A32,  32,0,1,1,91.4,78" fill="none" stroke="#000000" stroke-linecap="round"   stroke-linejoin="round" stroke-width="16"></path><path d="M164.6,78A32,  32,0,1,1,196,116" fill="none" stroke="#000000" stroke-linecap="round"   stroke-linejoin="round" stroke-width="16"></path></svg>`;
 let toSvg = `
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -56,6 +59,7 @@ let toSvg = `
     `;
 let deposite = `<ion-icon name="arrow-down"></ion-icon>`;
 let withdraw = `<ion-icon name="arrow-up"></ion-icon>`;
+
 let bank = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polygon points="24 96 232 96 128 32 24 96" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon><line x1="56" y1="96" x2="56" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="104" y1="96" x2="104" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="152" y1="96" x2="152" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="96" x2="200" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="32" y1="176" x2="224" y2="176" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="16" y1="208" x2="240" y2="208" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>`;
 
 // /////////////////////////////////////////////////////////////
@@ -78,11 +82,38 @@ logInBtn.forEach((el) => {
     header.style.filter = `blur(3px)`;
   });
 });
-
-modalCrossBtn.addEventListener("click", function (e) {
+// cross btn
+modalCrossBtn.addEventListener("click", function () {
   modalWindow.classList.remove("open-modal");
   main.style.filter = `blur(0px)`;
   header.style.filter = `blur(0px)`;
+  //  default active class
+  tabs.forEach((t) => t.classList.remove("operations__tab-active"));
+  tabsContent.forEach((c) => c.classList.remove("operations__content--active"));
+
+  document
+    .querySelector(".operations__tab--2")
+    .classList.add("operations__tab-active");
+  document
+    .querySelector(`.operations__content--2`)
+    .classList.add("operations__content--active");
+});
+
+// sign up tab
+tabsContainer.addEventListener("click", function (e) {
+  const clicked = e.target.closest(".operations__tab");
+  // Guard clause
+  if (!clicked) return;
+  // Remove active classes
+  tabs.forEach((t) => t.classList.remove("operations__tab-active"));
+  tabsContent.forEach((c) => c.classList.remove("operations__content--active"));
+  // // Activate tab
+  clicked.classList.add("operations__tab-active");
+
+  // // Activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
 });
 
 // ///////////////////////////////////////////////////////////////////////////////////
@@ -345,13 +376,13 @@ const updateUI = function () {
 //👉👉👉👉👉  Matching userName or Implement log in
 // ///////////////////////////////////////////////////////////////////
 let currentAcc = "";
-modalBtn.addEventListener("click", function (e) {
+btnSignIn.addEventListener("click", function (e) {
   e.preventDefault();
   accounts.forEach((el) => {
     if (el.username === text.value && el.pin === Number(password.value)) {
       dashboard.classList.add("open");
       currentAcc = el;
-      // hidden all element except dashboard
+      //       // hidden all element except dashboard
       modalWindow.classList.remove("open-modal");
       main.style.display = `none`;
       header.style.display = `none`;
@@ -548,30 +579,3 @@ document.querySelector(".notification").addEventListener("click", function (e) {
 // header.style.display = `none`;
 // dashboard.classList.add("open");
 // ///////////////////////////////////////////////////////////////////////////////////
-// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 End of DashBoard 🔥🔥🔥🔥🔥🔥🔥🔥🔥
-// ///////////////////////////////////////////////////////////////////////////////////
-
-// POP UP
-
-const tabs = document.querySelectorAll(".operations__tab");
-const tabsContainer = document.querySelector(".operations__tab-container");
-const tabsContent = document.querySelectorAll(".operations__content");
-
-tabsContainer.addEventListener("click", function (e) {
-  tabs.forEach((t) => t.classList.remove("operations__tab-active"));
-  // console.log(e.target.dataset.tab);
-  const clicked = e.target.closest(".operations__tab");
-  // Guard clause
-  if (!clicked) return;
-
-  // Remove active classes
-  tabsContent.forEach((c) => c.classList.remove("operations__content--active"));
-
-  // // Activate tab
-  clicked.classList.add("operations__tab-active");
-
-  // // Activate content area
-  document
-    .querySelector(`.operations__content--${clicked.dataset.tab}`)
-    .classList.add("operations__content--active");
-});
