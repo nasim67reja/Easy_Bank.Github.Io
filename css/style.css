@@ -293,9 +293,7 @@
 }
 
 /* Section Featured IN */
-.section-feature {
-  padding-top: 12rem;
-}
+
 .section-feature h2 {
   text-align: center;
   margin-bottom: 3.2rem;
@@ -315,10 +313,8 @@
 /* Section Feature */
 /* /////////////////////////////// */
 .section-features {
-  margin-top: 10rem;
-  padding: 15rem 0;
-  clip-path: polygon(0 15%, 100% 5%, 100% 85%, 0 100%);
-  background-color: #fff;
+  padding: 13rem 0 8rem 0;
+  
 }
 .features-header {
   max-width: 61rem;
