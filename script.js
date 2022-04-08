@@ -88,10 +88,7 @@ logInBtn.forEach((el) => {
   });
 });
 // cross btn
-modalCrossBtn.addEventListener("click", function () {
-  modalWindow.classList.remove("open-modal");
-  main.style.filter = `blur(0px)`;
-  header.style.filter = `blur(0px)`;
+function defaultActive() {
   //  default active class
   tabs.forEach((t) => t.classList.remove("operations__tab-active"));
   tabsContent.forEach((c) => c.classList.remove("operations__content--active"));
@@ -102,6 +99,13 @@ modalCrossBtn.addEventListener("click", function () {
   document
     .querySelector(`.operations__content--2`)
     .classList.add("operations__content--active");
+}
+modalCrossBtn.addEventListener("click", function () {
+  modalWindow.classList.remove("open-modal");
+  main.style.filter = `blur(0px)`;
+  header.style.filter = `blur(0px)`;
+  //
+  defaultActive();
 });
 
 // sign up tab
@@ -337,6 +341,13 @@ btnCreateAcc.addEventListener("click", function (e) {
     accounts.push(currentAcc);
     activeDashboard();
     updateUI();
+    // clear inputfield
+    inputfirstName.value = "";
+    inputlastName.value = "";
+    inputEmail.value = "";
+    inputPassword.value = "";
+    //
+    defaultActive();
   }
 });
 
