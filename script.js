@@ -70,6 +70,20 @@ let bank = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fil
 // /////////////////////////////////////////////////////////////
 
 // header
+//  sticky header
+const sectionHero = document.querySelector(".section-hero");
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) header.classList.add("sticky-nav");
+  else header.classList.remove("sticky-nav");
+};
+const heroSectionObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+});
+
+heroSectionObserver.observe(sectionHero);
 
 // 👉👉👉👉👉 calculate Hero section left margin
 function reportWindowSize() {
@@ -82,6 +96,7 @@ window.addEventListener("resize", reportWindowSize);
 
 logInBtn.forEach((el) => {
   el.addEventListener("click", function (e) {
+    e.preventDefault();
     modalWindow.classList.add("open-modal");
     main.style.filter = `blur(3px)`;
     header.style.filter = `blur(3px)`;
@@ -637,3 +652,47 @@ document.querySelector(".notification").addEventListener("click", function (e) {
 // header.style.display = `none`;
 // dashboard.classList.add("open");
 // ///////////////////////////////////////////////////////////////////////////////////
+
+//  JavaScript intersection observer api
+const sectionFeature = document.querySelector(".section-feature");
+
+const featureCallback = function (entries) {
+  const [entry] = entries;
+  // console.log(entry);
+  if (entry.isIntersecting) {
+    sectionFeature.classList.add("in-viewport");
+  } else {
+    sectionFeature.classList.remove("in-viewport");
+  }
+};
+const featureObserver = new IntersectionObserver(featureCallback, {
+  root: null,
+  threshold: 0.1,
+});
+
+featureObserver.observe(sectionFeature);
+
+//  JavaScript intersection observer api :section Features
+const sectionFeatures = document
+  .querySelector(".features-content")
+  .querySelector(".grid");
+
+const featuresCallback = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (entry.isIntersecting) {
+    document.querySelectorAll(".feature-column").forEach((el) => {
+      el.classList.add("in-viewport");
+    });
+  } else {
+    document.querySelectorAll(".feature-column").forEach((el) => {
+      el.classList.remove("in-viewport");
+    });
+  }
+};
+const featuresObserver = new IntersectionObserver(featuresCallback, {
+  root: null,
+  threshold: 0.3,
+});
+
+featuresObserver.observe(sectionFeatures);

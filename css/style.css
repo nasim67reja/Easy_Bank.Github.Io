@@ -5,10 +5,10 @@
   padding: 2rem 0 3rem 0;
 }
 
-.sticky {
+.sticky-nav {
   position: fixed;
   width: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   z-index: 1000;
 }
 .h-icon {
@@ -46,7 +46,7 @@
 }
 /* Modal Window */
 .pop-up {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(45, 49, 77, 0.596);
@@ -293,7 +293,17 @@
 }
 
 /* Section Featured IN */
-
+.section-feature{
+  transform: translateY(60%);
+  opacity: 0;
+  margin-bottom: 90rem;
+}
+.in-viewport{
+  transition: all 1s;
+  transform: translate(0%) !important;
+  transform: rotate(0deg) !important;
+  opacity: 1 !important;
+}
 .section-feature h2 {
   text-align: center;
   margin-bottom: 3.2rem;
@@ -333,7 +343,10 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  transform: rotateY(80deg);
+  opacity: 0;
 }
+
 
 .feature-icon svg {
   width: 8rem;

@@ -22,6 +22,8 @@ html {
 }
 body {
   font-family: "Roboto", sans-serif;
+  font-family: "Public Sans",
+  sans-serif;
   background-color: var(--lg-blue);
 }
 a:link,
@@ -108,6 +110,9 @@ button:hover,
 .heading-primary {
   font-size: 5rem;
   margin-bottom: 4rem;
+}
+h1,h2,h3{
+font-weight: 400;
 }
 .description {
   margin-bottom: 3rem;
