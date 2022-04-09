@@ -672,27 +672,37 @@ const featureObserver = new IntersectionObserver(featureCallback, {
 
 featureObserver.observe(sectionFeature);
 
-//  JavaScript intersection observer api :section Features
-const sectionFeatures = document
-  .querySelector(".features-content")
-  .querySelector(".grid");
+// section parralax
 
-const featuresCallback = function (entries) {
+const sectionParralax = document.querySelector(".parralax-section");
+const parralaxTextBox = document.querySelector(".parralax-text-box");
+const parralaxImageBox = document.querySelector(".parralax-img-box");
+const parralaxImage1 = document.querySelector(".img1");
+const parralaxImage2 = document.querySelector(".img2");
+
+const parralaxCallback = function (entries) {
   const [entry] = entries;
-  console.log(entry);
+
   if (entry.isIntersecting) {
-    document.querySelectorAll(".feature-column").forEach((el) => {
-      el.classList.add("in-viewport");
-    });
+    parralaxTextBox.classList.add("in-viewport");
+    parralaxImageBox.classList.add("in-viewport");
   } else {
-    document.querySelectorAll(".feature-column").forEach((el) => {
-      el.classList.remove("in-viewport");
-    });
+    parralaxTextBox.classList.remove("in-viewport");
+    parralaxImageBox.classList.remove("in-viewport");
   }
+  entries.forEach((el) => {
+    console.log(el);
+    console.log(el.intersectionRatio);
+    if (el.intersectionRatio >= 1) {
+      parralaxImage1.classList.add("i1");
+    } else if (el.intersectionRatio > 0.78) {
+      parralaxImage1.classList.add("i10-8");
+    }
+  });
 };
-const featuresObserver = new IntersectionObserver(featuresCallback, {
+const parralaxObserver = new IntersectionObserver(parralaxCallback, {
   root: null,
-  threshold: 0.3,
+  threshold: [0.4, 0.8, 0.9, 1],
 });
 
-featuresObserver.observe(sectionFeatures);
+parralaxObserver.observe(sectionParralax);

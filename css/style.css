@@ -368,37 +368,50 @@
 
 .parralax-section{
   padding:  15rem 0;
-  /* background-color: var(--parralax-section); */
-  background-color: #fff;
-/* clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%); */
+  background-color: var(--parralax-section);
+  /* background-color: #fff; */
+clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+margin-bottom: 100rem;
 }
 .parralax-section .grid{
   align-items: center;
   gap: 1rem;
 }
 .parralax-text-box{
-  /* border: 2px solid black; */
   padding: 0 2rem;
+  transform: translateX(-20%);
+  opacity: 0;
 }
 .parralax-section .btn:link,
 .parralax-section .btn:visited{
-  /* background: var(--dk-blue); */
+  background: var(--dk-blue);
   padding: 1.5rem 3rem;
 }
 
 .parralax-img-box{
   display: flex;
   align-items: center;
+  transform: translateX(20%);
+  opacity: 0;
 }
-.parralax-img{
-  /* border: 2px solid black; */
-  box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.05);
-}
+/* img1 */
 .img1{
   width: 237px;
   height: 314px;
+  transform: translateY(6%);
 }
+
+.i10-8 {
+  transform: translateY(3%);
+  transition: all 1s;
+}
+.i1{
+  transform: translateY(0);
+  transition: all 1s;
+}
+/* img2 */
 .img2{
   width: 331px;
   height: 440px;
+  transform: translateY(-5%);
 }

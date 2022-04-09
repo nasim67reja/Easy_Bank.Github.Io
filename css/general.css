@@ -91,6 +91,7 @@ button:hover,
 .btn:visited {
   color: var(--white);
   background: var(--gradient);
+  background: var(--dk-blue);
   text-decoration: none;
   font-size: 1.5rem;
   padding: 1.3rem 5rem;
