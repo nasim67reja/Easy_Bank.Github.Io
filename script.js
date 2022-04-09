@@ -1,13 +1,7 @@
 "use strict";
 
 //👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇 Elements 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
-///// Header :
-const header = document.querySelector(".header");
-const containerEl = document.querySelector(".container");
-// hero
-const hero = document.querySelector(".hero");
-// // Main :
-const main = document.querySelector("main");
+
 //  modal
 const btnSignIn = document.querySelector("#btn-sign-in");
 const text = document.querySelector("#text");
@@ -23,7 +17,19 @@ const inputlastName = document.querySelector("#l-name");
 const inputEmail = document.querySelector("#c-email");
 const inputPassword = document.querySelector("#c-password");
 const btnCreateAcc = document.querySelector("#create-account");
-
+///// Header :
+const header = document.querySelector(".header");
+const containerEl = document.querySelector(".container");
+// hero
+const hero = document.querySelector(".hero");
+// // Main :
+const main = document.querySelector("main");
+// section parralax
+const sectionParralax = document.querySelector(".parralax-section");
+const parralaxTextBox = document.querySelector(".parralax-text-box");
+const parralaxImageBox = document.querySelector(".parralax-img-box");
+const parralaxImage1 = document.querySelector(".img1");
+const parralaxImage2 = document.querySelector(".img2");
 //// DashBoard :
 const dashboard = document.querySelector(".dashboard");
 const dashMainHeader = document
@@ -672,14 +678,19 @@ const featureObserver = new IntersectionObserver(featureCallback, {
 
 featureObserver.observe(sectionFeature);
 
-// section parralax
+// ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  Section Parralax//////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
 
-const sectionParralax = document.querySelector(".parralax-section");
-const parralaxTextBox = document.querySelector(".parralax-text-box");
-const parralaxImageBox = document.querySelector(".parralax-img-box");
-const parralaxImage1 = document.querySelector(".img1");
-const parralaxImage2 = document.querySelector(".img2");
-
+const removeClass = function () {
+  parralaxImage1.classList.remove("i1");
+  parralaxImage1.classList.remove("i10-9");
+  parralaxImage1.classList.remove("i10-8");
+  //
+  parralaxImage2.classList.remove("i2");
+  parralaxImage2.classList.remove("i20-9");
+  parralaxImage2.classList.remove("i20-8");
+};
 const parralaxCallback = function (entries) {
   const [entry] = entries;
 
@@ -693,10 +704,20 @@ const parralaxCallback = function (entries) {
   entries.forEach((el) => {
     console.log(el);
     console.log(el.intersectionRatio);
-    if (el.intersectionRatio >= 1) {
-      parralaxImage1.classList.add("i1");
-    } else if (el.intersectionRatio > 0.78) {
+    if (el.intersectionRatio < 0.7) {
+      removeClass();
+    } else if (el.intersectionRatio < 0.85) {
+      removeClass();
       parralaxImage1.classList.add("i10-8");
+      parralaxImage2.classList.add("i20-8");
+    } else if (el.intersectionRatio < 0.92) {
+      removeClass();
+      parralaxImage1.classList.add("i10-9");
+      parralaxImage2.classList.add("i20-9");
+    } else if (el.intersectionRatio <= 1) {
+      removeClass();
+      parralaxImage1.classList.add("i1");
+      parralaxImage2.classList.add("i2");
     }
   });
 };
