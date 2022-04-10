@@ -371,7 +371,6 @@
   background-color: var(--parralax-section);
   /* background-color: #fff; */
 clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
-margin-bottom: 100rem;
 }
 .parralax-section .grid{
   align-items: center;
@@ -440,14 +439,10 @@ margin-bottom: 100rem;
 /* /////////////////////////////// */
 
 .section-slider{
-  border: 2px solid black;
   padding:  10rem 0;
 }
-.section-slider .container{
-  background-color: yellow;
-}
+
 .slider-header-box{
-  /* border: 2px solid black; */
  display: grid;
  grid-template-columns: 45fr 55fr;
   margin-bottom: 8rem;
@@ -456,40 +451,41 @@ margin-bottom: 100rem;
 .slider-tab{
   justify-self: flex-end;
   display: flex;
-  gap: 5rem;
+  align-items: center;
+  gap: 4rem;
   padding-right: 1rem;
 }
 .slider-btn{
   border: none;
   background-color: transparent;
   font-size: 1.8rem;
+  padding: 1rem;
+}
+.slider-btn-active{
   font-weight: 700;
 }
-
 /* SLIDER */
 .slider-box{
-  border: 3px solid black;
+  position: relative;
 }
 .slider {
-  max-width: 100rem;
+  max-width: 68rem;
   height: 50rem;
-  margin: 10rem auto;
+  margin: 0rem auto;
   position: relative;
-
-  /* border: 2px solid black; */
   /* IN THE END */
-  /* overflow: hidden; */
+  overflow: hidden;
 }
-
 .slide {
   position: absolute;
   top: 0;
   width: 100%;
   height: 50rem;
-
+color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8rem;
 
   /* THIS creates the animation! */
   transition: transform 1s;
@@ -498,9 +494,9 @@ margin-bottom: 100rem;
   position: absolute;
   top: 50%;
   z-index: 10;
-
+  background-color: #fff;
   border: none;
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid black;
   font-family: inherit;
   color: #333;
   border-radius: 50%;
@@ -509,13 +505,29 @@ margin-bottom: 100rem;
   font-size: 3.25rem;
   cursor: pointer;
 }
-
 .slider__btn--left {
-  left: 6%;
+  left: 0;
   transform: translate(-50%, -50%);
 }
-
 .slider__btn--right {
-  right: 6%;
+  right: 0;
   transform: translate(50%, -50%);
+}
+.slide-img-box img{
+  width: 30.5rem;
+  height: 36.9rem;
+}
+.heading-tertiary{
+margin-bottom: 5rem;
+font-size: 2.6rem;
+line-height: 1.3;
+}
+.slider p{
+  font-size: 1.6rem;
+}
+.s-btn{
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--dk-blue);
 }

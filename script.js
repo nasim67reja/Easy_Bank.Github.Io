@@ -702,8 +702,6 @@ const parralaxCallback = function (entries) {
     parralaxImageBox.classList.remove("in-viewport");
   }
   entries.forEach((el) => {
-    console.log(el);
-    console.log(el.intersectionRatio);
     if (el.intersectionRatio < 0.7) {
       removeClass();
     } else if (el.intersectionRatio < 0.85) {
@@ -734,7 +732,8 @@ const slides = document.querySelectorAll(".slide");
 const slider = document.querySelector(".slider");
 const btnLeft = document.querySelector(".slider__btn--left");
 const btnRight = document.querySelector(".slider__btn--right");
-
+const sliderTab = document.querySelector(".slider-tab");
+const btnSlider = document.querySelectorAll(".slider-btn");
 let curSlide = 0;
 const maxslide = slides.length;
 
@@ -743,7 +742,14 @@ const goToSlide = function (slide) {
     s.style.transform = `translateX(${100 * (i - slide)}%)`;
   });
 };
+
+const activeBtn = function () {
+  btnSlider.forEach((el) => el.classList.remove("slider-btn-active"));
+  btnSlider[curSlide].classList.add("slider-btn-active");
+};
+
 goToSlide(0);
+activeBtn();
 
 const nextSlide = function (slide) {
   if (curSlide === maxslide - 1) {
@@ -751,15 +757,17 @@ const nextSlide = function (slide) {
   } else {
     curSlide++;
   }
+
   goToSlide(curSlide);
+  activeBtn();
 };
 
 const prevSlide = function (slide) {
   if (curSlide === 0) {
     curSlide = maxslide - 1;
   } else curSlide--;
-
   goToSlide(curSlide);
+  activeBtn();
 };
 
 btnRight.addEventListener("click", nextSlide);
@@ -768,4 +776,12 @@ btnLeft.addEventListener("click", prevSlide);
 document.addEventListener("keydown", function (e) {
   if (e.key === "ArrowRight") nextSlide();
   else if (e.key === "ArrowLeft") prevSlide();
+});
+
+sliderTab.addEventListener("click", function (e) {
+  btnSlider.forEach((el, i) => {
+    if (e.target == el) curSlide = i;
+    goToSlide(curSlide);
+    activeBtn();
+  });
 });
