@@ -301,7 +301,6 @@
  .in-viewport{
   transition: all 1s;
   transform: translate(0%) !important;
-  transform: rotate(0deg) !important;
    opacity: 1 !important; 
  } 
 .section-feature h2 {
@@ -324,7 +323,6 @@
 /* /////////////////////////////// */
 .section-features {
   padding: 13rem 0 8rem 0;
-  
 }
 .features-header {
   max-width: 61rem;
@@ -343,11 +341,7 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  transform: rotateY(80deg);
-  opacity: 0;
 }
-
-
 .feature-icon svg {
   width: 8rem;
   height: 8rem;
@@ -368,8 +362,8 @@
 /* /////////////////////////////// */
 .parralax-section{
   padding:  15rem 0;
-  background-color: var(--parralax-section);
-  /* background-color: #fff; */
+  /* background-color: var(--parralax-section); */
+  background-color: #fff;
 clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
 }
 .parralax-section .grid{
@@ -440,12 +434,15 @@ clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
 
 .section-slider{
   padding:  10rem 0;
+  transform: translateY(20%);
+  opacity: 0;
+  margin-bottom: 50rem;
 }
 
 .slider-header-box{
  display: grid;
  grid-template-columns: 45fr 55fr;
-  margin-bottom: 8rem;
+  margin-bottom: 4rem;
   gap: 8rem;
 }
 .slider-tab{

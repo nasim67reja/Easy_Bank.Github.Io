@@ -30,6 +30,16 @@ const parralaxTextBox = document.querySelector(".parralax-text-box");
 const parralaxImageBox = document.querySelector(".parralax-img-box");
 const parralaxImage1 = document.querySelector(".img1");
 const parralaxImage2 = document.querySelector(".img2");
+
+// section Slider
+const slides = document.querySelectorAll(".slide");
+const slider = document.querySelector(".slider");
+const btnLeft = document.querySelector(".slider__btn--left");
+const btnRight = document.querySelector(".slider__btn--right");
+const sliderTab = document.querySelector(".slider-tab");
+const btnSlider = document.querySelectorAll(".slider-btn");
+const sectionSlider = document.querySelector(".section-slider");
+
 //// DashBoard :
 const dashboard = document.querySelector(".dashboard");
 const dashMainHeader = document
@@ -328,7 +338,6 @@ const accounts = [account1, account2, account3, account4];
 //🔥🔥🔥🔥👉👉👉👉👉 create New account
 // ///////////////////////////////////////////////////////////////////
 let currentAcc = "";
-// ekhane kaj baki input field clear kora
 btnCreateAcc.addEventListener("click", function (e) {
   e.preventDefault();
   let [fName, lName, email, password] = [
@@ -659,25 +668,6 @@ document.querySelector(".notification").addEventListener("click", function (e) {
 // dashboard.classList.add("open");
 // ///////////////////////////////////////////////////////////////////////////////////
 
-//  JavaScript intersection observer api
-const sectionFeature = document.querySelector(".section-feature");
-
-const featureCallback = function (entries) {
-  const [entry] = entries;
-  // console.log(entry);
-  if (entry.isIntersecting) {
-    sectionFeature.classList.add("in-viewport");
-  } else {
-    sectionFeature.classList.remove("in-viewport");
-  }
-};
-const featureObserver = new IntersectionObserver(featureCallback, {
-  root: null,
-  threshold: 0.1,
-});
-
-featureObserver.observe(sectionFeature);
-
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Section Parralax//////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
@@ -726,14 +716,10 @@ const parralaxObserver = new IntersectionObserver(parralaxCallback, {
 
 parralaxObserver.observe(sectionParralax);
 
-//
+//// ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  Section Slider//////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
 
-const slides = document.querySelectorAll(".slide");
-const slider = document.querySelector(".slider");
-const btnLeft = document.querySelector(".slider__btn--left");
-const btnRight = document.querySelector(".slider__btn--right");
-const sliderTab = document.querySelector(".slider-tab");
-const btnSlider = document.querySelectorAll(".slider-btn");
 let curSlide = 0;
 const maxslide = slides.length;
 
@@ -785,3 +771,16 @@ sliderTab.addEventListener("click", function (e) {
     activeBtn();
   });
 });
+// observer
+const sliderCallback = function (entries) {
+  const [entry] = entries;
+  // console.log(entry);
+  if (entry.isIntersecting) sectionSlider.classList.add("in-viewport");
+  else sectionSlider.classList.remove("in-viewport");
+};
+const sliderObserver = new IntersectionObserver(sliderCallback, {
+  root: null,
+  threshold: 0.2,
+});
+
+sliderObserver.observe(sectionSlider);

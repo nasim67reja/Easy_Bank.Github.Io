@@ -26,6 +26,10 @@ body {
   font-family: "Public Sans",sans-serif;
   background-color: var(--lg-blue);
 }
+.bg-color{
+  background-color: var(--parralax-section) !important;
+  transition: all 1s;
+}
 a:link,
 a:visited,
 p {
@@ -122,7 +126,7 @@ button:hover,
 }
 h1,h2,h3{
 font-weight: 400;
-  color: var(--dk-blue);
+color: #343;
 }
 .description {
   margin-bottom: 3rem;
