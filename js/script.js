@@ -609,5 +609,26 @@ const sliderObserver = new IntersectionObserver(sliderCallback, {
 
 sliderObserver.observe(sectionSlider);
 
-// const card = document.querySelector('.card-content');
-// console.log(card);
+const sectionCard = document.querySelector('.section-card');
+const card1 = document.querySelector('#card-1');
+const card2 = document.querySelector('#card-2');
+const card3 = document.querySelector('#card-3');
+const card4 = document.querySelector('#card-4');
+const card = document.querySelectorAll('.card');
+
+const cardCallback = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (entry.isIntersecting) {
+    card.forEach(el => el.classList.add('in-viewport'));
+  }
+  if (entry.intersectionRatio < 0.4 && entry.boundingClientRect.top > 0)
+    card.forEach(el => el.classList.remove('in-viewport'));
+  else card.forEach(el => el.classList.add('in-viewport'));
+};
+
+const cardObserver = new IntersectionObserver(cardCallback, {
+  root: null,
+  threshold: 0.4,
+});
+cardObserver.observe(sectionCard);
