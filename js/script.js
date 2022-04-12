@@ -52,6 +52,10 @@ const btnRight = document.querySelector('.slider__btn--right');
 const sliderTab = document.querySelector('.slider-tab');
 const btnSlider = document.querySelectorAll('.slider-btn');
 const sectionSlider = document.querySelector('.section-slider');
+// section Card
+const sectionCard = document.querySelector('.section-card');
+const cards = document.querySelector('.cards').querySelector('.grid');
+const card = document.querySelectorAll('.card');
 
 //// DashBoard :
 const dashboard = document.querySelector('.dashboard');
@@ -609,19 +613,16 @@ const sliderObserver = new IntersectionObserver(sliderCallback, {
 
 sliderObserver.observe(sectionSlider);
 
-const sectionCard = document.querySelector('.section-card');
-const card1 = document.querySelector('#card-1');
-const card2 = document.querySelector('#card-2');
-const card3 = document.querySelector('#card-3');
-const card4 = document.querySelector('#card-4');
-const card = document.querySelectorAll('.card');
-
+//// ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  Section Card//////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
 const cardCallback = function (entries) {
   const [entry] = entries;
-  console.log(entry);
-  if (entry.isIntersecting) {
-    card.forEach(el => el.classList.add('in-viewport'));
-  }
+
+  if (entry.intersectionRatio >= 1 && entry.boundingClientRect.top > 0) {
+    cards.classList.add('tx28');
+  } else cards.classList.remove('tx28');
+
   if (entry.intersectionRatio < 0.4 && entry.boundingClientRect.top > 0)
     card.forEach(el => el.classList.remove('in-viewport'));
   else card.forEach(el => el.classList.add('in-viewport'));
@@ -629,6 +630,6 @@ const cardCallback = function (entries) {
 
 const cardObserver = new IntersectionObserver(cardCallback, {
   root: null,
-  threshold: 0.4,
+  threshold: [0.4, 1],
 });
 cardObserver.observe(sectionCard);

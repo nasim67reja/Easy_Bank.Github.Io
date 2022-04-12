@@ -69,6 +69,9 @@ p {
 .grid-4-cols {
   grid-template-columns: repeat(4, 1fr);
 }
+.grid-5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
 button:hover,
 .product-image-small:hover,
 .delete-icon:hover {
