@@ -608,3 +608,6 @@ const sliderObserver = new IntersectionObserver(sliderCallback, {
 });
 
 sliderObserver.observe(sectionSlider);
+
+// const card = document.querySelector('.card-content');
+// console.log(card);

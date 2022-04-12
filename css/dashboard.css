@@ -143,7 +143,7 @@ li:hover .d-nav-link:active {
   justify-content: space-between;
   overflow: hidden;
 }
-.card {
+.d-card {
   background: url(../images/bg-simplify-section-desktop.svg), var(--bright-red);
   background-size: 134% 102%;
   background-repeat: no-repeat;
@@ -151,13 +151,13 @@ li:hover .d-nav-link:active {
   border-radius: 1rem;
   padding: 2rem 3rem;
 }
-.card-box .card:nth-child(2) {
+.card-box .d-card:nth-child(2) {
   background: url(../images/bg-simplify-section-desktop.svg), var(--dk-blue);
   background-size: 122% 99%;
   background-repeat: no-repeat;
   background-position: 18% 99%;
 }
-.card span {
+.d-card span {
   text-transform: uppercase;
   color: #fff;
   font-weight: 700;
@@ -169,7 +169,7 @@ li:hover .d-nav-link:active {
   border-radius: 5px;
 }
 
-.card h3 {
+.d-card h3 {
   font-size: 2rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.856);
@@ -208,7 +208,7 @@ button {
   padding-left: 1rem;
   font-size: 1.2rem;
 }
-.card p {
+.d-card p {
   font-size: 1.4rem;
   color: var(--bright-Cyan);
   margin-top: 8px;
