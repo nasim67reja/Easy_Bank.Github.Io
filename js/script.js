@@ -633,3 +633,23 @@ const cardObserver = new IntersectionObserver(cardCallback, {
   threshold: [0.4, 1],
 });
 cardObserver.observe(sectionCard);
+
+///////////////////// section 4
+const sectionPhone = document.querySelector('#section-4');
+const phoneImgBox = document.querySelector('.phn-img-box');
+const phoneTextBox = document.querySelector('.phn-text-box');
+const phoneCallback = function (entries) {
+  const [entry] = entries;
+  if (entry.isIntersecting) {
+    phoneImgBox.classList.add('in-viewport');
+    phoneTextBox.classList.add('in-viewport');
+  } else {
+    phoneImgBox.classList.remove('in-viewport');
+    phoneTextBox.classList.remove('in-viewport');
+  }
+};
+const phoneObserver = new IntersectionObserver(phoneCallback, {
+  root: null,
+  threshold: 0.3,
+});
+phoneObserver.observe(sectionPhone);

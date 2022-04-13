@@ -367,6 +367,7 @@
 .parralax-section{
   padding:  15rem 0;
   background-color: #fff;
+  background-color: var(--parralax-section);
 clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
 }
 .parralax-section .grid{
@@ -429,6 +430,37 @@ clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
 .i2 {
   transform: translateY(0);
   transition: all 1s;
+}
+/* /////////////////////////////// */
+/* Section 4 */
+/* /////////////////////////////// */
+#section-4 {
+  margin-top: -8rem;
+  padding: 10rem 0 5rem 0;
+  background-color: #fff;
+  background-color: var(--parralax-section);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+#section-4 .grid {
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+}
+
+.phn-img-box {
+  transform: translateX(-25%);
+  opacity: 0;
+}
+
+.phn-text-box {
+  transform: translateX(25%);
+  opacity: 0;
+}
+
+.phn-img-box img {
+  width: 45rem;
+  height: 58rem;
 }
 
 /* /////////////////////////////// */
@@ -538,7 +570,6 @@ line-height: 1.3;
 .section-card {
   background-color: #fff;
   padding: 9.5rem 0 8rem 0;
-  margin-bottom: 150rem;
 }
 .cards{
   overflow: auto;
@@ -618,3 +649,69 @@ line-height: 1.3;
   line-height: 1.4;
   margin-bottom: 0;
 }
+
+/* /////////////////////////////// */
+/* Footer */
+/* /////////////////////////////// */
+.footer {
+  background-color: var(--dk-blue);
+  padding: 6rem 0 8rem 0;
+}
+
+.footer-column {
+  gap: 2rem;
+}
+
+.footer-column:last-child {
+  align-items: flex-end;
+}
+
+.footer-column svg {
+  width: 15rem;
+  height: 3rem;
+}
+
+#logo {
+  fill: var(--white);
+}
+
+.footer-icon-list {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  list-style: none;
+}
+
+.icon svg {
+  width: 2.3rem;
+}
+
+.icon:hover {
+  fill: var(--grayish-blue);
+  cursor: pointer;
+}
+
+.footer-nav-list {
+  gap: 1.6rem;
+  list-style: none;
+}
+
+.footer-nav-link:link,
+.footer-nav-link:visited {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1.6rem;
+  transition: all 0.3s;
+}
+
+.footer-nav-link:hover,
+.footer-nav-link:active {
+  color: var(--grayish-blue);
+}
+
+.copyright {
+  color: var(--vl-gray);
+  color: var(--grayish-blue);
+  font-size: 1.5rem;
+}
+
