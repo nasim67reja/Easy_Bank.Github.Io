@@ -116,7 +116,6 @@
     .main-nav-link:visited {
         color: var(--dk-blue);
         font-size: 2rem;
-        /* font-weight: bold; */
     }
 
     .header-btn-box {

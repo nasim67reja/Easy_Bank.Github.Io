@@ -13,6 +13,26 @@ import {
   accounts,
 } from './data.js';
 
+// const hamburgurMenu = document.querySelector('.hamburger');
+// const mainNavList = document.querySelector('.main-nav-list');
+// hamburgurMenu.addEventListener('click', function () {
+//   mainNavList.classList.add('nav-open');
+// });
+const hambergur = document.querySelector('.hamburger');
+const close = document.querySelector('.close');
+const mainNav = document.querySelector('.main-nav-list');
+
+hambergur.addEventListener('click', function (e) {
+  mainNav.classList.add('nav-open');
+  hambergur.style.display = 'none';
+  close.style.display = 'inline-block';
+});
+
+close.addEventListener('click', function () {
+  mainNav.classList.remove('nav-open');
+  hambergur.style.display = 'inline-block';
+  close.style.display = 'none';
+});
 //👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇 Elements 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 
 //  modal
