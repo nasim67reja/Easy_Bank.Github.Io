@@ -25,6 +25,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-family: "Public Sans",sans-serif;
   background-color: var(--lg-blue);
+  overflow-x: hidden;
 }
 .bg-color{
   background-color: var(--parralax-section) !important;
@@ -142,4 +143,9 @@ color: #343;
 
 .relative{
   position: relative;
+}
+.in-viewport {
+  transition: all 1s;
+  transform: translate(0%) !important;
+  opacity: 1 !important;
 }

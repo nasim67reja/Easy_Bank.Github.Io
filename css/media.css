@@ -1,0 +1,240 @@
+@media (max-width: 75em) {
+    html {
+        font-size: 56%;
+    }
+}
+
+@media (max-width: 66em) {
+    html {
+        font-size: 52%;
+    }
+}
+
+@media (max-width: 61em) {
+    html {
+        font-size: 48%;
+    }
+}
+
+@media (max-width: 56.25em) {
+    html {
+        font-size: 45%;
+    }
+
+    .features-content .grid,
+    .cards .grid {
+        padding: 0 5rem;
+        gap: 4rem;
+        column-gap: 18rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .cards .grid {
+        column-gap: 0rem;
+        justify-items: center;
+    }
+
+    .card {
+        max-width: 28.5rem;
+    }
+}
+
+@media (max-width: 46.25em) {
+    html {
+        font-size: 40%;
+    }
+}
+
+@media (max-width: 43em) {
+    html {
+        font-size: 36%;
+    }
+}
+
+@media (max-width: 37.5em) {
+    html {
+        font-size: 50%;
+    }
+
+    .hero,
+    .features-content .grid,
+    .cards .grid,
+    .footer-parent {
+        grid-template-columns: 1fr;
+    }
+
+    /* Header */
+    .h-icon {
+        position: absolute;
+        top: 3rem;
+        right: 2.5rem;
+        cursor: pointer;
+    }
+
+    .hamburger {
+        display: inline-block;
+    }
+
+    .main-nav-list {
+        width: 90%;
+        padding: 3rem 12rem;
+        z-index: 10;
+        position: absolute;
+        top: 9rem;
+        left: 5%;
+        gap: 3rem;
+        background-color: var(--white);
+        border-radius: 1rem;
+        flex-direction: column;
+        box-shadow: 0px 172px 46px 150px rgba(45, 49, 77, 0.57);
+        /* animation */
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        height: 1rem;
+        overflow: hidden;
+        transform: translateY(-14rem);
+        transition: all 0.1s;
+    }
+
+    .nav-open {
+        transition: all 0.5s;
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        height: fit-content;
+        overflow: visible;
+        transform: translateY(0rem);
+    }
+
+    .main-nav-link:link,
+    .main-nav-link:visited {
+        color: var(--dk-blue);
+        font-size: 2rem;
+        /* font-weight: bold; */
+    }
+
+    .header-btn-box {
+        display: none;
+    }
+
+    /* section hero */
+
+    .hero {
+        padding-left: 0;
+    }
+
+    .hero-img-box {
+        margin-bottom: -15rem;
+        grid-row: 1;
+        background: url("../images/bg-intro-mobile.svg");
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: 100% 80%;
+    }
+
+    .hero-img {
+        transform: translate(0rem, -17rem);
+    }
+
+    .hero-text-box {
+        text-align: center;
+        padding: 0 2rem 5rem 2rem;
+    }
+
+    .heading-primary {
+        font-size: 4.5rem;
+        margin-bottom: 2rem;
+    }
+
+    /* section features */
+    .section-features {
+        padding-bottom: 6rem;
+    }
+
+    .features-header {
+        text-align: center;
+    }
+
+    .heading-secondary {
+        font-size: 3.7rem;
+        margin-bottom: 1.6rem;
+        text-align: center;
+    }
+
+    .features-content .grid {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .feature-column {
+        gap: 2.5rem;
+    }
+
+    .heading-tertiary {
+        font-size: 2.5rem;
+        margin-top: -1rem;
+    }
+
+    .features-content p {
+        font-size: 1.8rem;
+    }
+
+    /* section card */
+    .cards {
+        padding-top: 2rem;
+    }
+
+    .cards .grid {
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .card {
+        max-width: 32.7rem;
+    }
+
+    .card-content {
+        padding: 2rem 3.5rem;
+    }
+
+    .card-content span {
+        font-size: 1.3rem;
+    }
+
+    .big-text {
+        font-size: 1.6rem !important;
+    }
+
+    .card-content .description {
+        font-size: 1.4rem;
+    }
+
+    /* Footer */
+    .footer-parent {
+        justify-items: center;
+        gap: 4rem;
+    }
+
+    .footer-logo svg {
+        width: 19rem;
+        height: 3.3rem;
+    }
+
+    .footer-column:nth-child(3) {
+        margin-top: -2rem;
+    }
+
+    .footer-column:last-child {
+        align-items: center;
+    }
+
+    .column {
+        align-items: center;
+    }
+}
