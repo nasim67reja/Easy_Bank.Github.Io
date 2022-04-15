@@ -270,8 +270,7 @@
   background-color: #fff;
 }
 .hero {
-  grid-template-columns: 40fr 60fr;
-  /* max-width: 127.8rem; */
+  grid-template-columns: 45fr 55fr;
   padding: 0;
   padding-left: 3rem;
   margin: 0;
@@ -547,9 +546,13 @@ line-height: 1.3;
 }
 .cards{
   overflow: auto;
+    scroll-snap-type: mandatory;
+    scrollbar-width: none;
 }
 .cards::-webkit-scrollbar{
-  width: 0;
+  scroll-snap-type: mandatory;
+  scrollbar-width: none;
+  width: 0px;
 }
 .cards .grid{
   gap: 2.8rem;

@@ -1,3 +1,9 @@
+@media (min-width: 90em) {
+  html {
+    font-size: 70%;
+  }
+}
+
 @media (max-width: 75em) {
   html {
     font-size: 56%;
@@ -7,6 +13,42 @@
 @media (max-width: 66em) {
   html {
     font-size: 52%;
+  }
+
+  /* pop up window */
+  .sign-up-content{
+    max-width: 42rem;
+  }
+  .operations__tab-container{
+    margin-top: 2rem;
+  }
+  .operation-btn{
+    padding: 1.5rem 2.8rem;
+    font-size: 1.4rem;
+  }
+  .operations h3{
+    margin: 3rem  0;
+  }
+  .operations .column{
+    margin-top: 0;
+  }
+  form{
+    gap: 0 !important;
+  }
+  .operations__content--1{
+    margin-top: 4rem;
+  }
+  .operations__content--1 .column{
+    width: 100%;
+  }
+  .n-popup-input-box1{
+    width: 100%;
+  }
+  #f-name,#l-name{
+    width: 100%;
+  }
+  .operations__content--1 .username-input{
+    padding: 0.5rem 2rem;
   }
 }
 
@@ -54,6 +96,7 @@
   html {
     font-size: 36%;
   }
+
 }
 
 @media (max-width: 37.5em) {
@@ -188,6 +231,9 @@
     font-size: 1.8rem;
   }
   /* section Paralax */
+  .parralax-section{
+    clip-path: polygon(0 5%, 100% 0, 100% 90%, 0% 100%)
+  }
   .parralax-text-box {
     padding-bottom: 5rem;
     text-align: center;
@@ -201,7 +247,8 @@
   /* section 4 */
   #section-4{
       margin-top: -11rem;
-      padding-bottom: 10rem;
+      padding-bottom: 6rem;
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
   }
   .phn-text-box {
     grid-row: 1;
@@ -213,6 +260,7 @@
 }
 .slider-tab{
     justify-self: center;
+    gap: 3rem;
 }
 .slider{
     height: 68rem;
@@ -272,5 +320,14 @@
 
   .column {
     align-items: center;
+  }
+}
+
+@media (max-width: 28.5em) {
+  .sign-up-box{
+    width: 40rem;
+  }
+  .operation-btn{
+    padding: 1rem 2rem;
   }
 }

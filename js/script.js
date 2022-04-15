@@ -137,6 +137,8 @@ logInBtn.forEach(el => {
     modalWindow.classList.add('open-modal');
     main.style.filter = `blur(3px)`;
     header.style.filter = `blur(3px)`;
+    // if nav open then the page cann't scroll vertically
+    document.querySelector('html').style.overflowY = 'hidden';
   });
 });
 // cross btn
@@ -156,6 +158,8 @@ modalCrossBtn.addEventListener('click', function () {
   modalWindow.classList.remove('open-modal');
   main.style.filter = `blur(0px)`;
   header.style.filter = `blur(0px)`;
+  // back to scroll
+  document.querySelector('html').style.overflowY = 'visible';
   //
   defaultActive();
 });
@@ -645,7 +649,7 @@ const cardCallback = function (entries) {
     if (entry.intersectionRatio < 0.4 && entry.boundingClientRect.top > 0)
       card.forEach(el => el.classList.remove('in-viewport'));
     else card.forEach(el => el.classList.add('in-viewport'));
-  }
+  } else card.forEach(el => el.classList.add('in-viewport'));
 };
 
 const cardObserver = new IntersectionObserver(cardCallback, {
