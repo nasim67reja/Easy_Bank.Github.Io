@@ -12,10 +12,10 @@
   z-index: 1000;
 }
 .h-icon {
-  display: none;
+  display: none ;
 }
 .header-logo-box svg {
-  width: 14rem;
+  width: 16rem;
   height: 3rem;
 }
 

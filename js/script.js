@@ -13,28 +13,11 @@ import {
   accounts,
 } from './data.js';
 
-// const hamburgurMenu = document.querySelector('.hamburger');
-// const mainNavList = document.querySelector('.main-nav-list');
-// hamburgurMenu.addEventListener('click', function () {
-//   mainNavList.classList.add('nav-open');
-// });
+//👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇 Elements 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+// Header
 const hambergur = document.querySelector('.hamburger');
 const close = document.querySelector('.close');
 const mainNav = document.querySelector('.main-nav-list');
-
-hambergur.addEventListener('click', function (e) {
-  mainNav.classList.add('nav-open');
-  hambergur.style.display = 'none';
-  close.style.display = 'inline-block';
-});
-
-close.addEventListener('click', function () {
-  mainNav.classList.remove('nav-open');
-  hambergur.style.display = 'inline-block';
-  close.style.display = 'none';
-});
-//👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇 Elements 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
-
 //  modal
 const btnSignIn = document.querySelector('#btn-sign-in');
 const text = document.querySelector('#text');
@@ -108,6 +91,22 @@ const withdrawWindow = document
 const transactioncontent = document.querySelector('.transaction-content');
 
 // header
+// open nav
+hambergur.addEventListener('click', function (e) {
+  mainNav.classList.add('nav-open');
+  hambergur.style.display = 'none';
+  close.style.display = 'inline-block';
+  // if nav open then the page cann't scroll vertically
+  document.querySelector('html').style.overflowY = 'hidden';
+});
+// close nav
+close.addEventListener('click', function () {
+  mainNav.classList.remove('nav-open');
+  hambergur.style.display = 'inline-block';
+  close.style.display = 'none';
+  // back to scroll
+  document.querySelector('html').style.overflowY = 'visible';
+});
 //  sticky header
 const sectionHero = document.querySelector('.section-hero');
 
@@ -638,14 +637,15 @@ sliderObserver.observe(sectionSlider);
 // ///////////////////////////////////////////////////////////////////
 const cardCallback = function (entries) {
   const [entry] = entries;
+  if (window.innerWidth > 600) {
+    if (entry.intersectionRatio >= 1 && entry.boundingClientRect.top > 0) {
+      cards.classList.add('tx28');
+    } else cards.classList.remove('tx28');
 
-  if (entry.intersectionRatio >= 1 && entry.boundingClientRect.top > 0) {
-    cards.classList.add('tx28');
-  } else cards.classList.remove('tx28');
-
-  if (entry.intersectionRatio < 0.4 && entry.boundingClientRect.top > 0)
-    card.forEach(el => el.classList.remove('in-viewport'));
-  else card.forEach(el => el.classList.add('in-viewport'));
+    if (entry.intersectionRatio < 0.4 && entry.boundingClientRect.top > 0)
+      card.forEach(el => el.classList.remove('in-viewport'));
+    else card.forEach(el => el.classList.add('in-viewport'));
+  }
 };
 
 const cardObserver = new IntersectionObserver(cardCallback, {
