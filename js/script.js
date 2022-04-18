@@ -17,7 +17,7 @@ import {
 // Header
 const hambergur = document.querySelector('.hamburger');
 const close = document.querySelector('.close');
-const mainNav = document.querySelector('.main-nav-list');
+const mainNav = document.querySelector('.main-nav-list2');
 //  modal
 const btnSignIn = document.querySelector('#btn-sign-in');
 const text = document.querySelector('#text');

@@ -15,19 +15,19 @@
   --vl-gray: hsl(0, 0%, 98%);
   --white: hsl(0, 0%, 100%);
   --bright-red: hsl(12, 88%, 59%);
-  --parralax-section:rgb(239,233,254);
+  --parralax-section: rgb(239, 233, 254);
 }
 html {
   font-size: 62.5%;
   overflow-x: hidden;
 }
 body {
-  font-family: "Roboto", sans-serif;
-  font-family: "Public Sans",sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Public Sans', sans-serif;
   background-color: var(--lg-blue);
   overflow-x: hidden;
 }
-.bg-color{
+.bg-color {
   background-color: var(--parralax-section) !important;
   transition: all 1s;
 }
@@ -97,8 +97,8 @@ button:hover,
 .btn:link,
 .btn:visited {
   color: var(--white);
-  background: var(--gradient);
   background: var(--dk-blue);
+  background: var(--gradient);
   text-decoration: none;
   font-size: 1.5rem;
   padding: 1.3rem 5rem;
@@ -110,14 +110,13 @@ button:hover,
   gap: 1rem;
 }
 .btn-main:link,
-.btn-main:visited{
+.btn-main:visited {
   display: inline-block;
 }
 .btn:hover,
 .btn:active {
   opacity: 0.7;
 }
-
 
 .heading-primary {
   font-size: 5rem;
@@ -128,20 +127,22 @@ button:hover,
   margin-bottom: 3.5rem;
   text-align: start;
 }
-h1,h2,h3{
-font-weight: 400;
-color: #343;
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  color: #343;
 }
 .description {
   margin-bottom: 3rem;
   font-size: 1.7rem;
   line-height: 1.6;
 }
-.gap{
+.gap {
   gap: 2rem;
 }
 
-.relative{
+.relative {
   position: relative;
 }
 .in-viewport {
