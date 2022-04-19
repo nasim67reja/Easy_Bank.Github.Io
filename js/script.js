@@ -138,7 +138,7 @@ logInBtn.forEach(el => {
     main.style.filter = `blur(3px)`;
     header.style.filter = `blur(3px)`;
     // if nav open then the page cann't scroll vertically
-    document.querySelector('html').style.overflowY = 'hidden';
+    // document.querySelector('html').style.overflowY = 'hidden';
   });
 });
 // cross btn
@@ -159,7 +159,7 @@ modalCrossBtn.addEventListener('click', function () {
   main.style.filter = `blur(0px)`;
   header.style.filter = `blur(0px)`;
   // back to scroll
-  document.querySelector('html').style.overflowY = 'visible';
+  // document.querySelector('html').style.overflowY = 'visible';
   //
   defaultActive();
 });

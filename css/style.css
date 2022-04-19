@@ -1,8 +1,8 @@
 /* Header */
 .header {
   background-color: #fff;
-  height: 8rem;
-  padding: 2rem 0 3rem 0;
+  height: 6rem;
+  padding: 1rem 0 3rem 0;
 }
 
 .sticky-nav {
@@ -72,9 +72,10 @@
 }
 
 .sign-up-box {
+  margin-top: 5rem;
   background-color: white;
-  width: 50rem;
-  height: 60rem;
+  width: 40rem;
+  height: 47rem;
   border-radius: 5px;
   transform: translateY(-4rem);
   position: relative;
@@ -115,7 +116,7 @@
 .operation-btn {
   border: none;
   border-bottom: 1px solid silver;
-  padding: 2rem 4rem;
+  padding: 2rem 2rem;
   opacity: 0.8;
   color: var(--dk-blue);
   font-weight: 700;
@@ -138,29 +139,28 @@
 
 .operations .column {
   align-items: center;
+  margin-top: 1rem;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .operations h3 {
   align-self: center;
   font-size: 1.6rem;
-  margin-bottom: 2rem;
 }
 
 .ip {
-  margin-bottom: 2rem;
+  margin-bottom: 5px;
 }
 
 .popup-username {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
   color: var(--dk-blue);
 }
 
 .username-input {
   border: 2px solid var(--lg-blue);
-  padding: 1rem 3rem;
+  padding: 5px 3rem;
   border-bottom: 3px solid var(--lg-blue);
 }
 
@@ -203,9 +203,9 @@
 .social-icon {
   border: 1px solid silver;
   border-radius: 2px;
-  padding: 0.5rem 2rem;
+  padding: 0.2rem 0.8rem;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -224,20 +224,25 @@
 }
 
 .social-icon span {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--grayish-blue);
 }
 
 /* new to easy bank */
+.operations__content--1 .column {
+  width: 100%;
+}
 .n-popup-input-box1 {
+  width: 100%;
   display: flex;
   gap: 2rem;
   justify-content: space-between;
 }
 
 .n-popup-input-box1 .username-input {
-  padding: 1rem;
+  width: 100%;
+  padding: 0.8rem;
 }
 
 .popup-input-box2,
