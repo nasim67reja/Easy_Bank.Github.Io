@@ -314,6 +314,8 @@ function updateUI() {
   userEmail.textContent = `${currentAcc.email}`;
   // change img
   userImage.setAttribute('src', currentAcc.image);
+  // date
+  // document.querySelector('#date').textContent = new Date();
 }
 function activeDashboard() {
   dashboard.classList.add('open');
@@ -413,7 +415,7 @@ next.addEventListener('click', function () {
     let key = Object.keys(currentAcc.movements).length;
     currentAcc.movements[key] = {
       to: 'Withdraw',
-      date: 'Sep 19,2021 at 12.10',
+      date: testDate,
       amount: Number(inputNumAm[1].value),
     };
     currentAcc.amounts.push(-currentAcc.movements[key].amount);
@@ -442,6 +444,42 @@ btnWithdrawCrossParent.addEventListener('click', function (e) {
   }
 });
 // ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  // Create current date and ///////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+
+const now = new Date();
+const options1 = {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long',
+};
+const locale = navigator.language;
+
+const testDate = new Intl.DateTimeFormat(locale, options1).format(now);
+
+// 👇👇👇👇createa time for header
+const dateTime = document.querySelector('#date').querySelector('span');
+console.log(dateTime);
+setInterval(function () {
+  const options = {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+
+    day: 'numeric',
+    month: 'numeric', // 2-digit,long exist
+    year: 'numeric', // 2-digit exist
+    // weekday: 'short', // long & narrow exist
+  };
+  const local = navigator.language;
+  const now = new Date();
+  const formatDate = new Intl.DateTimeFormat(local, options).format(now);
+  // console.log(formatDate);
+  dateTime.textContent = formatDate;
+  // clock.textContent = formatDate;
+}, 1000);
+// ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  loan/////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
 
@@ -450,7 +488,7 @@ inputLoanBtn.addEventListener('click', function () {
     let key = Object.keys(currentAcc.movements).length;
     currentAcc.movements[key] = {
       from: 'Loan',
-      date: 'Sep 17,2021 at 22.10',
+      date: testDate,
       amount: Number(inputLoan.value),
     };
     currentAcc.amounts.push(currentAcc.movements[key].amount);
@@ -460,6 +498,7 @@ inputLoanBtn.addEventListener('click', function () {
   }
   inputLoan.value = '';
 });
+
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Transfer Amount//////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
@@ -474,7 +513,7 @@ btnTransfer.addEventListener('click', function (e) {
       // create recieve account transaction
       el.movements[tokey] = {
         from: currentAcc.owner,
-        date: 'Sep 17,2021 at 22.10',
+        date: testDate,
         amount:
           Number(inputTransferAmount.value) -
           (1.85 / 100) * Number(inputTransferAmount.value),
@@ -483,7 +522,7 @@ btnTransfer.addEventListener('click', function (e) {
       // create send account transaction
       currentAcc.movements[fromKey] = {
         to: el.owner,
-        date: 'Sep 17,2021 at 22.10',
+        date: testDate,
         amount: Number(inputTransferAmount.value),
       };
       currentAcc.amounts.push(-currentAcc.movements[fromKey].amount);
@@ -524,18 +563,18 @@ setInterval(() => {
 }, 100000);
 
 // demo
-// createTransaction(account1);
+createTransaction(account1);
 
-// dashMainHeader.textContent = `Hi, ${account1.owner}`;
-// userName.textContent = `${account1.owner}`;
-// userEmail.textContent = `${account1.email}`;
-// userImage.setAttribute("src", account1.image);
-// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+dashMainHeader.textContent = `Hi, ${account1.owner}`;
+userName.textContent = `${account1.owner}`;
+userEmail.textContent = `${account1.email}`;
+userImage.setAttribute('src', account1.image);
+allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-// modalWindow.style.display = `none`;
-// main.style.display = `none`;
-// header.style.display = `none`;
-// dashboard.classList.add("open");
+modalWindow.style.display = `none`;
+main.style.display = `none`;
+header.style.display = `none`;
+dashboard.classList.add('open');
 // ///////////////////////////////////////////////////////////////////////////////////
 
 // ///////////////////////////////////////////////////////////////////

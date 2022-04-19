@@ -108,6 +108,14 @@ li:hover .d-nav-link:active {
   margin-top: 1rem;
   color: var(--dk-blue);
 }
+
+#date {
+  text-align: end;
+  font-size: 1.2rem !important;
+}
+#date span {
+  font-size: 1.2rem !important;
+}
 .btn-box {
   display: flex;
   gap: 1.5rem;
