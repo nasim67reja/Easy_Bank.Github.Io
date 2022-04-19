@@ -417,7 +417,9 @@ next.addEventListener('click', function () {
       amount: Number(inputNumAm[1].value),
     };
     currentAcc.amounts.push(-currentAcc.movements[key].amount);
-    updateUI();
+    setTimeout(() => {
+      updateUI();
+    }, 2000);
     likeBefore();
   }
 });
@@ -452,7 +454,9 @@ inputLoanBtn.addEventListener('click', function () {
       amount: Number(inputLoan.value),
     };
     currentAcc.amounts.push(currentAcc.movements[key].amount);
-    updateUI();
+    setTimeout(() => {
+      updateUI();
+    }, 2000);
   }
   inputLoan.value = '';
 });
@@ -484,7 +488,9 @@ btnTransfer.addEventListener('click', function (e) {
       };
       currentAcc.amounts.push(-currentAcc.movements[fromKey].amount);
 
-      updateUI();
+      setTimeout(() => {
+        updateUI();
+      }, 2000);
     }
   });
   inputId.value = '';
@@ -501,8 +507,21 @@ document.querySelector('.notification').addEventListener('click', function (e) {
   header.style.display = `block`;
   main.style.filter = `blur(0px)`;
   header.style.filter = `blur(0px)`;
+  reportWindowSize();
 });
 // ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉 auto Log Out//////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+const timeOut = document.querySelector('.time');
+console.log(timeOut);
+const calcDaysPassed = (date1, date2) =>
+  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+const days1 = calcDaysPassed(new Date(), new Date(2037, 3, 14));
+console.log(days1);
+setInterval(() => {
+  console.log('hello world');
+}, 100000);
 
 // demo
 // createTransaction(account1);

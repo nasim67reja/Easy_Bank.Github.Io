@@ -1,9 +1,9 @@
 .dashboard {
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-top: 1rem;
   min-height: 100vh;
   width: 100vw;
-  background: url("../images/diamond-sunset.svg");
+  background: url('../images/diamond-sunset.svg');
   position: absolute;
   top: 0;
   left: 0;
@@ -13,9 +13,9 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-transition: all 0.5s;
+  transition: all 0.5s;
 }
-.open{
+.open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -108,7 +108,7 @@ li:hover .d-nav-link:active {
   margin-top: 1rem;
   color: var(--dk-blue);
 }
-.btn-box{
+.btn-box {
   display: flex;
   gap: 1.5rem;
 }
@@ -124,7 +124,7 @@ li:hover .d-nav-link:active {
   display: flex;
   gap: 1.4rem;
   cursor: pointer;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 500;
   transition: all 0.3s;
 }
@@ -393,15 +393,11 @@ button {
   /* background-color: red; */
 }
 
-
-
-
-
 /* //////////////////////////////////////////////////// */
 /*👇👇👇👇👇👇👇👇  Ovarlay withdraw */
 /* ///////////////////////////////////////////////// */
 
-.ovarlay-withdraw{
+.ovarlay-withdraw {
   position: absolute;
   top: 0;
   left: 0;
@@ -414,74 +410,74 @@ button {
   visibility: hidden;
   transform: translateX(-100%);
 }
-.open-withdraw{
+.open-withdraw {
   transition: all 0.5s;
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
-    transform: translateX(0%);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0%);
 }
-#withdraw{
+#withdraw {
   min-height: 96vh;
   border-radius: 1rem;
   background-color: var(--dk-blue);
   width: 50rem;
- display: grid;
- grid-template-rows: 95fr 5fr;
+  display: grid;
+  grid-template-rows: 95fr 5fr;
 }
-#withdraw .center{
+#withdraw .center {
   gap: 1rem;
 }
-.payment-method{
+.payment-method {
   background-color: #42465f;
   font-size: 1.7rem;
   padding: 1rem 2rem;
   color: #9698a6;
   cursor: pointer;
 }
-.mark{
+.mark {
   opacity: 0;
 }
-.mark-open{
+.mark-open {
   transition: all 0.3s;
   opacity: 1;
 }
-.next{
+.next {
   text-align: center;
 }
-.next span{
+.next span {
   margin-left: 1rem;
 }
-.withdraw-info{
+.withdraw-info {
   width: 80%;
   display: flex;
   flex-direction: column;
   gap: 8rem;
 }
-.withdraw-number{
+.withdraw-number {
   color: #9698a6;
   width: 100%;
 }
-.label{
+.label {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
-.i-with{
+.i-with {
   width: 100%;
   border: none;
   background-color: #42465f;
   padding: 1.6rem 0.2rem;
-  caret-color : #FF0000;
+  caret-color: #ff0000;
   color: #9698a6;
   font-size: 1.6rem;
 }
-#available{
+#available {
   text-align: end;
   margin-top: 1rem;
   font-size: 1.4rem;
 }
 
-.w-cross{
+.w-cross {
   cursor: pointer;
   fill: #9698a6;
   height: 3rem;
