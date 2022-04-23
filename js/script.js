@@ -86,6 +86,8 @@ const next = document.querySelector('.next');
 const withdrawWindow = document
   .querySelector('#withdraw')
   .querySelector('.center');
+const dateTime = document.querySelector('#date').querySelector('span');
+const labelTimer = document.querySelector('.time');
 
 //transaction
 const transactioncontent = document.querySelector('.transaction-content');
@@ -327,6 +329,7 @@ function activeDashboard() {
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Matching userName or Implement log in
 // ///////////////////////////////////////////////////////////////////
+let timer;
 btnSignIn.addEventListener('click', function (e) {
   e.preventDefault();
   accounts.forEach(el => {
@@ -339,6 +342,9 @@ btnSignIn.addEventListener('click', function (e) {
   password.value = '';
   // calling all function
   updateUI();
+  if (timer) clearInterval(timer);
+  timer = startLogOutTimer();
+  // startLogOutTimer();
 });
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Withdraw/////////////////////////////////////////////////
@@ -458,9 +464,8 @@ const locale = navigator.language;
 
 const testDate = new Intl.DateTimeFormat(locale, options1).format(now);
 
-// 👇👇👇👇createa time for header
-const dateTime = document.querySelector('#date').querySelector('span');
-console.log(dateTime);
+// 👇👇👇👇create time for header
+
 setInterval(function () {
   const options = {
     hour: 'numeric',
@@ -479,6 +484,35 @@ setInterval(function () {
   dateTime.textContent = formatDate;
   // clock.textContent = formatDate;
 }, 1000);
+
+// 👇👇👇👇 Create startLogoutTimer funcionality
+function startLogOutTimer() {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    // In each call, print the remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log out user
+    if (time === 0) {
+      logOut();
+      clearInterval(timer);
+    }
+    // Decrease 1s
+    time--;
+  };
+
+  // Set time to 5 minutes
+  let time = 120;
+
+  // Call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  return timer;
+}
+// startLogOutTimer();
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  loan/////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
@@ -497,6 +531,9 @@ inputLoanBtn.addEventListener('click', function () {
     }, 2000);
   }
   inputLoan.value = '';
+  // Reset timer
+  clearInterval(timer);
+  timer = startLogOutTimer();
 });
 
 // ///////////////////////////////////////////////////////////////////
@@ -534,11 +571,14 @@ btnTransfer.addEventListener('click', function (e) {
   });
   inputId.value = '';
   inputTransferAmount.value = '';
+  // Reset timer
+  clearInterval(timer);
+  timer = startLogOutTimer();
 });
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  Log Out//////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
-document.querySelector('.notification').addEventListener('click', function (e) {
+function logOut() {
   dashboard.classList.remove('open');
   // hidden all element except dashboard
 
@@ -547,34 +587,28 @@ document.querySelector('.notification').addEventListener('click', function (e) {
   main.style.filter = `blur(0px)`;
   header.style.filter = `blur(0px)`;
   reportWindowSize();
+}
+document.querySelector('.notification').addEventListener('click', function () {
+  // Reset timer
+  clearInterval(timer);
+  timer = startLogOutTimer();
+  //
+  logOut();
 });
-// ///////////////////////////////////////////////////////////////////
-//👉👉👉👉👉 auto Log Out//////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////
-const timeOut = document.querySelector('.time');
-console.log(timeOut);
-const calcDaysPassed = (date1, date2) =>
-  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
-const days1 = calcDaysPassed(new Date(), new Date(2037, 3, 14));
-console.log(days1);
-setInterval(() => {
-  console.log('hello world');
-}, 100000);
 
 // demo
-createTransaction(account1);
+// createTransaction(account1);
 
-dashMainHeader.textContent = `Hi, ${account1.owner}`;
-userName.textContent = `${account1.owner}`;
-userEmail.textContent = `${account1.email}`;
-userImage.setAttribute('src', account1.image);
-allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+// dashMainHeader.textContent = `Hi, ${account1.owner}`;
+// userName.textContent = `${account1.owner}`;
+// userEmail.textContent = `${account1.email}`;
+// userImage.setAttribute('src', account1.image);
+// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-modalWindow.style.display = `none`;
-main.style.display = `none`;
-header.style.display = `none`;
-dashboard.classList.add('open');
+// modalWindow.style.display = `none`;
+// main.style.display = `none`;
+// header.style.display = `none`;
+// dashboard.classList.add('open');
 // ///////////////////////////////////////////////////////////////////////////////////
 
 // ///////////////////////////////////////////////////////////////////
