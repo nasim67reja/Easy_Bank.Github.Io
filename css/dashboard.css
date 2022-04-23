@@ -189,6 +189,7 @@ li:hover .d-nav-link:active {
 .loan-input {
   display: flex;
   gap: 1rem;
+  
 }
 .input {
   border: none;
@@ -404,7 +405,8 @@ button {
 #myChart {
   width: 100% !important;
   height: 24rem !important;
-  padding: 0rem 10rem 0rem 5rem ;
+  padding: 2rem 10rem 0rem 5rem ;
+  box-shadow: 1px -5px 13px rgba(0, 0, 0, 0.05);
 }
 /* //////////////////////////////////////////////////// */
 /*👇👇👇👇👇👇👇👇  Ovarlay withdraw */
