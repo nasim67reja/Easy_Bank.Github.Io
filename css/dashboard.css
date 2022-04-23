@@ -28,7 +28,7 @@
 .main {
   min-height: 98vh;
   grid-template-columns: 18fr 55fr 27fr;
-  grid-template-rows: 80fr 20fr;
+  grid-template-rows: 74rem 26rem;
   /* background: var(--lg-blue); */
   background-color: #fff;
 }
@@ -142,14 +142,14 @@ li:hover .d-nav-link:active {
 }
 .userData-content-box {
   padding: 0 0 0 4rem;
+  margin-top: 2rem;
 }
 .userData-content-box .grid {
   grid-template-columns: 46fr 54fr;
   gap: 2rem;
 }
 .card-box {
-  gap: 3rem;
-  justify-content: space-between;
+  gap: 2rem;
   overflow: hidden;
 }
 .d-card {
@@ -161,6 +161,7 @@ li:hover .d-nav-link:active {
   padding: 2rem 3rem;
 }
 .card-box .d-card:nth-child(2) {
+  margin-top: 1rem;
   background: url(../images/bg-simplify-section-desktop.svg), var(--dk-blue);
   background-size: 122% 99%;
   background-repeat: no-repeat;
@@ -256,9 +257,9 @@ button {
   font-size: 1.2rem;
   color: var(--grayish-blue);
 }
-.log-out {
+/* .log-out {
   margin-top: 2rem;
-}
+} */
 .log-out p {
   font-size: 1.6rem;
   color: var(--grayish-blue);
@@ -278,7 +279,7 @@ button {
   padding: 1rem 2rem;
   /* background-color: var(--lg-blue); */
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.05);
-  height: 50rem;
+  height: 44rem;
   overflow-y: scroll;
 }
 .transactions-box::-webkit-scrollbar {
@@ -398,13 +399,12 @@ button {
 /* user data chart */
 .user-data-chart {
   grid-column: 2/-1;
-  border: 2px solid black;
-  /* background-color: red; */
+  margin-top: 2rem;
 }
 #myChart {
-  border: 2px solid black;
-  height: 40% !important;
-  width: 50rem !important;
+  width: 100% !important;
+  height: 24rem !important;
+  padding: 0rem 10rem 0rem 5rem ;
 }
 /* //////////////////////////////////////////////////// */
 /*👇👇👇👇👇👇👇👇  Ovarlay withdraw */

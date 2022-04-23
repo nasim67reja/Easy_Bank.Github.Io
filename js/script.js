@@ -598,41 +598,72 @@ document.querySelector('.notification').addEventListener('click', function () {
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  row:2 => Bar chart//////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
-// // 1.data:
+// console.log(account1);
+// console.log(account1.movements);
+let chartLabels = [];
+for (const [key, item] of Object.entries(account1.movements)) {
+  if (item.to) chartLabels.push(item.to);
+  if (item.from) chartLabels.push(item.from);
+}
+const chartAmountData = account1.amounts.map(el => Math.abs(el));
+const gray = 'hsl(233, 8%, 62%)';
+// // // 1.data:
 const data = {
-  labels: ['over-1', 'over-1', 'over-3', 'over-4', 'over-5'],
+  // labels: ['over-1', 'over-1', 'over-3', 'over-4', 'over-5'],
+  labels: [...chartLabels],
   datasets: [
     {
-      label: 'Run1',
-      data: [2, 4, 1, 7, 3],
-      backgroundColor: ['red', 'green', 'blue', 'rgba(0,0,25,0.8)', 'red'],
-      borderWidth: 4,
-      borderColor: 'black',
-      hoverBorderWidth: 1,
-      hoverBorderColor: 'rgba(0,0,0,0.4)',
+      label: 'Amount',
+      // data: [5, 7, 2, 3, 10],
+      data: [...chartAmountData],
+      backgroundColor: [gray, 'green', 'blue', 'rgba(0,0,25,0.8)', 'red'],
+      barPercentage: 0.6,
+      // barThickness: 6,
+      // maxBarThickness: 30,
+      // minBarLength: 2,
+      // borderWidth: 4,
+      // borderColor: 'black',
+      // hoverBorderWidth: 1,
+      // hoverBorderColor: 'rgba(0,0,0,0.4)',
     },
   ],
 };
+Chart.defaults.font.size = 16;
+Chart.defaults.font.lineHeight = 1.4;
+
 const config = {
   type: 'bar',
   data: data,
-  options: {},
+  options: {
+    maintainAspectRatio: false, // for applying the height propertry it is important
+    plugins: {
+      legend: {
+        display: false,
+        labels: {
+          // This more specific font property overrides the global property
+          font: {
+            size: 24,
+          },
+        },
+      },
+    },
+  },
 };
 
 const myChart = new Chart(document.getElementById('myChart'), config);
-// demo
-// createTransaction(account1);
+// demo;
+createTransaction(account1);
 
-// dashMainHeader.textContent = `Hi, ${account1.owner}`;
-// userName.textContent = `${account1.owner}`;
-// userEmail.textContent = `${account1.email}`;
-// userImage.setAttribute('src', account1.image);
-// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+dashMainHeader.textContent = `Hi, ${account1.owner}`;
+userName.textContent = `${account1.owner}`;
+userEmail.textContent = `${account1.email}`;
+userImage.setAttribute('src', account1.image);
+allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-// modalWindow.style.display = `none`;
-// main.style.display = `none`;
-// header.style.display = `none`;
-// dashboard.classList.add('open');
+modalWindow.style.display = `none`;
+main.style.display = `none`;
+header.style.display = `none`;
+dashboard.classList.add('open');
 // ///////////////////////////////////////////////////////////////////////////////////
 
 // ///////////////////////////////////////////////////////////////////
