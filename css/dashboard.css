@@ -398,9 +398,14 @@ button {
 /* user data chart */
 .user-data-chart {
   grid-column: 2/-1;
+  border: 2px solid black;
   /* background-color: red; */
 }
-
+#myChart {
+  border: 2px solid black;
+  height: 40% !important;
+  width: 50rem !important;
+}
 /* //////////////////////////////////////////////////// */
 /*👇👇👇👇👇👇👇👇  Ovarlay withdraw */
 /* ///////////////////////////////////////////////// */

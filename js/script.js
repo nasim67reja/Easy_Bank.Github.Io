@@ -595,7 +595,31 @@ document.querySelector('.notification').addEventListener('click', function () {
   //
   logOut();
 });
+// ///////////////////////////////////////////////////////////////////
+//👉👉👉👉👉  row:2 => Bar chart//////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+// // 1.data:
+const data = {
+  labels: ['over-1', 'over-1', 'over-3', 'over-4', 'over-5'],
+  datasets: [
+    {
+      label: 'Run1',
+      data: [2, 4, 1, 7, 3],
+      backgroundColor: ['red', 'green', 'blue', 'rgba(0,0,25,0.8)', 'red'],
+      borderWidth: 4,
+      borderColor: 'black',
+      hoverBorderWidth: 1,
+      hoverBorderColor: 'rgba(0,0,0,0.4)',
+    },
+  ],
+};
+const config = {
+  type: 'bar',
+  data: data,
+  options: {},
+};
 
+const myChart = new Chart(document.getElementById('myChart'), config);
 // demo
 // createTransaction(account1);
 
