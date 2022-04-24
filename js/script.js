@@ -672,20 +672,50 @@ function createChart() {
   myChart = new Chart(document.getElementById('myChart'), config);
   // myChart.update();
 }
+// pie Chart
+const labelspie = ['Total in', 'Total out', 'Empty'];
 
+const dataPie = {
+  labels: labelspie,
+  datasets: [
+    {
+      label: 'My First dataset',
+      // backgroundColor: ['hsl(220, 14%, 96%)', 'blueviolet', 'orange'],
+      backgroundColor: ['orange', 'hsl(233, 26%, 24%)', 'hsl(220, 14%, 96%)'],
+      data: [30, 45, 25],
+    },
+  ],
+};
+
+const config = {
+  type: 'pie',
+  data: dataPie,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  },
+};
+const myChartPie = new Chart(document.getElementById('pieChart'), config);
+
+//////////////////////////////////////
 // demo;
-// createTransaction(account1);
+//////////////////////////////////////
+createTransaction(account1);
 
-// dashMainHeader.textContent = `Hi, ${account1.owner}`;
-// userName.textContent = `${account1.owner}`;
-// userEmail.textContent = `${account1.email}`;
-// userImage.setAttribute('src', account1.image);
-// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+dashMainHeader.textContent = `Hi, ${account1.owner}`;
+userName.textContent = `${account1.owner}`;
+userEmail.textContent = `${account1.email}`;
+userImage.setAttribute('src', account1.image);
+allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-// modalWindow.style.display = `none`;
-// main.style.display = `none`;
-// header.style.display = `none`;
-// dashboard.classList.add('open');
+modalWindow.style.display = `none`;
+main.style.display = `none`;
+header.style.display = `none`;
+dashboard.classList.add('open');
 // ///////////////////////////////////////////////////////////////////////////////////
 
 // ///////////////////////////////////////////////////////////////////

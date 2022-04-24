@@ -22,9 +22,12 @@ export const account1 = {
       amount: 240,
     },
     1: {
-      to: 'Metro store',
-      date: 'Sep 17,2021 at 22.10',
-      amount: 220,
+      // to: 'Metro store',
+      // date: 'Sep 17,2021 at 22.10',
+      // amount: 220,
+      from: 'Loan',
+      date: 'Sep 19,2021 at 12.10',
+      amount: 350,
     },
     2: {
       from: 'Sarah Smith',
@@ -124,7 +127,7 @@ export const account3 = {
     5: {
       from: 'Deposite',
       date: 'Sep 19,2021 at 12.10',
-      amount: 2300,
+      amount: 300,
     },
     6: {
       from: 'Deposite',
