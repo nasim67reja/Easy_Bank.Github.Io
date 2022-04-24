@@ -316,7 +316,11 @@ function updateUI() {
   userEmail.textContent = `${currentAcc.email}`;
   // change img
   userImage.setAttribute('src', currentAcc.image);
+  // for chart
   createChart();
+  chartAmountData = [];
+  chartLabels = [];
+  barBgColor1 = [];
 
   // date
   // document.querySelector('#date').textContent = new Date();
@@ -343,7 +347,9 @@ btnSignIn.addEventListener('click', function (e) {
   text.value = '';
   password.value = '';
   // calling all function
+
   updateUI();
+
   if (timer) clearInterval(timer);
   timer = startLogOutTimer();
   // startLogOutTimer();
@@ -428,6 +434,7 @@ next.addEventListener('click', function () {
     };
     currentAcc.amounts.push(-currentAcc.movements[key].amount);
     setTimeout(() => {
+      myChart.destroy();
       updateUI();
     }, 2000);
     likeBefore();
@@ -528,7 +535,9 @@ inputLoanBtn.addEventListener('click', function () {
       amount: Number(inputLoan.value),
     };
     currentAcc.amounts.push(currentAcc.movements[key].amount);
+    // myChart.destroy();
     setTimeout(() => {
+      myChart.destroy();
       updateUI();
     }, 2000);
   }
@@ -567,6 +576,7 @@ btnTransfer.addEventListener('click', function (e) {
       currentAcc.amounts.push(-currentAcc.movements[fromKey].amount);
 
       setTimeout(() => {
+        myChart.destroy();
         updateUI();
       }, 2000);
     }
@@ -594,15 +604,20 @@ document.querySelector('.notification').addEventListener('click', function () {
   // Reset timer
   clearInterval(timer);
   timer = startLogOutTimer();
+  myChart.destroy();
+
   //
   logOut();
 });
 // ///////////////////////////////////////////////////////////////////
 //👉👉👉👉👉  row:2 => Bar chart//////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
-function createChart() {
-  let chartLabels = [];
-  let barBgColor1 = [];
+let chartAmountData = [];
+let chartLabels = [];
+let barBgColor1 = [];
+let myChart;
+//
+function createArr() {
   for (const [key, item] of Object.entries(currentAcc.movements)) {
     if (item.to) {
       chartLabels.push(item.to);
@@ -615,9 +630,11 @@ function createChart() {
       else barBgColor1.push(' blueviolet');
     }
   }
-
-  const chartAmountData = currentAcc.amounts.map(el => Math.abs(el));
-
+  chartAmountData = currentAcc.amounts.map(el => Math.abs(el));
+}
+//
+function createChart() {
+  createArr();
   // // // 1.data:
   const data = {
     labels: chartLabels,
@@ -652,7 +669,8 @@ function createChart() {
     },
   };
 
-  const myChart = new Chart(document.getElementById('myChart'), config);
+  myChart = new Chart(document.getElementById('myChart'), config);
+  // myChart.update();
 }
 
 // demo;

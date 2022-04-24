@@ -164,7 +164,7 @@ export const account4 = {
     3: {
       from: 'Deposite',
       date: 'Sep 19,2021 at 12.10',
-      amount: 2100,
+      amount: 500,
     },
     4: {
       to: 'Metro store',
