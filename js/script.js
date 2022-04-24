@@ -321,6 +321,10 @@ function updateUI() {
   chartAmountData = [];
   chartLabels = [];
   barBgColor1 = [];
+  // doughnut
+  totalIn = [];
+  totalOut = [];
+  remainningBalance = 0;
 
   // date
   // document.querySelector('#date').textContent = new Date();
@@ -435,6 +439,7 @@ next.addEventListener('click', function () {
     currentAcc.amounts.push(-currentAcc.movements[key].amount);
     setTimeout(() => {
       myChart.destroy();
+      myChartPie.destroy();
       updateUI();
     }, 2000);
     likeBefore();
@@ -538,6 +543,7 @@ inputLoanBtn.addEventListener('click', function () {
     // myChart.destroy();
     setTimeout(() => {
       myChart.destroy();
+      myChartPie.destroy();
       updateUI();
     }, 2000);
   }
@@ -577,6 +583,7 @@ btnTransfer.addEventListener('click', function (e) {
 
       setTimeout(() => {
         myChart.destroy();
+        myChartPie.destroy();
         updateUI();
       }, 2000);
     }
@@ -605,6 +612,7 @@ document.querySelector('.notification').addEventListener('click', function () {
   clearInterval(timer);
   timer = startLogOutTimer();
   myChart.destroy();
+  myChartPie.destroy();
 
   //
   logOut();
@@ -616,6 +624,11 @@ let chartAmountData = [];
 let chartLabels = [];
 let barBgColor1 = [];
 let myChart;
+//
+let totalIn = [];
+let totalOut = [];
+let remainningBalance;
+let myChartPie;
 //
 function createArr() {
   for (const [key, item] of Object.entries(currentAcc.movements)) {
@@ -631,6 +644,17 @@ function createArr() {
     }
   }
   chartAmountData = currentAcc.amounts.map(el => Math.abs(el));
+
+  // //// Doughnut and pie chart
+
+  totalIn = currentAcc.amounts
+    .filter(el => el > 0)
+    .reduce((acc, cur) => acc + cur);
+
+  totalOut = Math.abs(
+    currentAcc.amounts.filter(el => el < 0).reduce((acc, cur) => acc + cur)
+  );
+  remainningBalance = totalIn - totalOut;
 }
 //
 function createChart() {
@@ -670,52 +694,54 @@ function createChart() {
   };
 
   myChart = new Chart(document.getElementById('myChart'), config);
-  // myChart.update();
-}
-// pie Chart
-const labelspie = ['Total in', 'Total out', 'Empty'];
+  // ///////////
+  const dataPie = {
+    labels: ['Total in', 'Total out', 'Remainning'],
+    datasets: [
+      {
+        label: 'My First dataset',
+        // backgroundColor: ['hsl(220, 14%, 96%)', 'blueviolet', 'orange'],
+        backgroundColor: ['orange', 'hsl(233, 26%, 24%)', 'hsl(220, 14%, 96%)'],
+        data: [totalIn, totalOut, remainningBalance],
+      },
+    ],
+  };
 
-const dataPie = {
-  labels: labelspie,
-  datasets: [
-    {
-      label: 'My First dataset',
-      // backgroundColor: ['hsl(220, 14%, 96%)', 'blueviolet', 'orange'],
-      backgroundColor: ['orange', 'hsl(233, 26%, 24%)', 'hsl(220, 14%, 96%)'],
-      data: [30, 45, 25],
-    },
-  ],
-};
-
-const config = {
-  type: 'pie',
-  data: dataPie,
-  options: {
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
+  const config1 = {
+    type: 'doughnut',
+    data: dataPie,
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+          labels: {
+            font: {
+              size: 20,
+            },
+          },
+        },
       },
     },
-  },
-};
-const myChartPie = new Chart(document.getElementById('pieChart'), config);
+  };
+  myChartPie = new Chart(document.getElementById('pieChart'), config1);
+}
 
 //////////////////////////////////////
 // demo;
 //////////////////////////////////////
-createTransaction(account1);
+// createTransaction(account1);
 
-dashMainHeader.textContent = `Hi, ${account1.owner}`;
-userName.textContent = `${account1.owner}`;
-userEmail.textContent = `${account1.email}`;
-userImage.setAttribute('src', account1.image);
-allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
+// dashMainHeader.textContent = `Hi, ${account1.owner}`;
+// userName.textContent = `${account1.owner}`;
+// userEmail.textContent = `${account1.email}`;
+// userImage.setAttribute('src', account1.image);
+// allAmount.textContent = `$ ${totalBalence(account1.amounts)}`;
 
-modalWindow.style.display = `none`;
-main.style.display = `none`;
-header.style.display = `none`;
-dashboard.classList.add('open');
+// modalWindow.style.display = `none`;
+// main.style.display = `none`;
+// header.style.display = `none`;
+// dashboard.classList.add('open');
 // ///////////////////////////////////////////////////////////////////////////////////
 
 // ///////////////////////////////////////////////////////////////////
