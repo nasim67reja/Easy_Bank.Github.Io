@@ -85,6 +85,9 @@
 .sidebar-footer{
   display: none;
 }
+.userData-content-box .grid{
+  grid-template-columns: 45fr 55fr;
+}
 .user-data-chart{
   grid-column: 1/-1;
 }
@@ -142,6 +145,9 @@
     width: 44rem;
     height: 54rem;
   }
+  .userData-content-box .grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 56.25em) {
@@ -169,6 +175,82 @@
 
   .card {
     max-width: 28.5rem;
+  }
+  /* Dashboard */
+  .main{
+    margin-top: 6rem;
+    grid-template-columns: 1fr;
+  }
+  .notification{
+    position: fixed;
+    top: 0;
+    right: 0rem;
+    height: 7rem;
+    text-align: end;
+    /* border: 2px solid black; */
+    background-color: var(--lg-blue);
+    width: 100vw;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  #notification{
+    margin-top: 1.8rem;
+    transform: translate(-4rem);
+    width: 3rem;
+    height: 3rem;
+  }
+  .user-img{
+    position: fixed;
+    top: 5px;
+    left: 3rem;
+    width: 5rem !important;
+    height: 5rem !important;
+
+  }
+  .info-header h2,.user-name .name,.user-name .email{
+    display: none;
+  }
+  /* user data */
+  .user-header{
+    padding: 3rem 10rem;
+    transform: scale(1.1);
+  }
+  .userData-content-box{
+    padding: 3rem 10rem;
+  }
+  .userData-content-box .grid{
+    grid-template-columns: 45fr 55fr;
+    gap: 8rem;
+    transform: scale(1.1);
+  }
+  /* user info */
+  .user-info
+{
+  /* border: 2px solid black; */
+  margin: 3rem 0;
+}
+  .user-name{
+    margin-top: 0;
+  }
+  .pie-chart{
+    margin-top: 0;
+    grid-template-columns: 1fr 1fr;
+  }
+  #pieChart{
+    width: 57rem !important;
+    height: 18rem !important;
+    margin-top: 1rem;
+  }
+  .pie-img-box h2{
+    padding-left: 10rem;
+    margin-bottom: 3rem;
+  }
+  .pie-info-box{
+    transform: translateX(0rem);
+    font-size: 1.6rem;
+  }
+  /* user data chart */
+  .user-data-chart{
+    margin-top: 8rem;
   }
 }
 
