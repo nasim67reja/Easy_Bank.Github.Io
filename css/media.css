@@ -182,12 +182,12 @@
     grid-template-columns: 1fr;
   }
   .notification{
+    /* display: none; */
     position: fixed;
     top: 0;
-    right: 0rem;
+    left: 0;
     height: 7rem;
     text-align: end;
-    /* border: 2px solid black; */
     background-color: var(--lg-blue);
     width: 100vw;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -222,9 +222,11 @@
     gap: 8rem;
     transform: scale(1.1);
   }
+  .input-loan{
+    width: 80%;
+  }
   /* user info */
-  .user-info
-{
+  .user-info{
   /* border: 2px solid black; */
   margin: 3rem 0;
 }
@@ -508,6 +510,70 @@
   .column {
     align-items: center;
   }
+  /* dashboard */
+  .userData-content-box .grid{
+    grid-template-columns: 1fr;
+    margin-top: 3rem;
+    overflow: hidden;
+  }
+  .transactions-box{
+    grid-row: 1;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    height: 30rem;
+  }
+  .transaction-content{
+    width: 100%;
+  }
+  .row{
+    width: 90%;
+  }
+  /*user header */
+  .user-header{
+    transform: scale(1);
+    padding: 3rem ;
+  }
+  .d-btn:nth-child(2){
+    display: none;
+  }
+  /* user info */
+  .user-info,.user-data-chart{
+    margin-top: 40rem;
+  }
+  .pie-chart{
+    transform: translateY(-3rem);
+    align-items: flex-end;
+  }
+  .pie-img-box h2{
+    padding-left: 3rem;
+    transform: translateY(-2rem);
+  }
+  #pieChart{
+    width: 30rem !important;
+    height: 15rem !important;
+  }
+  /* footer navbar */
+  .d-nav-list{
+    padding: 0 4rem;
+  }
+  .sidebar-icon{
+    width: 3rem;
+    height: 3rem;
+  }
+  .main-icon{
+    padding: 1rem 1rem;
+    border-radius: 50%;
+    background-color: var(--grayish-blue);
+  }
+      .d-nav-link:link,
+      .d-nav-link:visited{
+        display: none;
+      }
+      /* user data chart */
+      #myChart{
+        padding: 2rem;
+        height: 22rem !important;
+      }
+ 
 }
 
 @media (max-width: 28.5em) {
@@ -545,5 +611,13 @@
   }
   .slider-tab {
     gap: 1rem;
+  }
+  /* dashboard */
+  .userData-content-box{
+    padding: 2rem;
+  }
+  #pieChart{
+    width: 22rem !important;
+    transform: translateX(-2rem);
   }
 }

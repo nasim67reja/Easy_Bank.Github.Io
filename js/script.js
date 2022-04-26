@@ -656,6 +656,7 @@ function createArr() {
   );
   remainningBalance = totalIn - totalOut;
 }
+const fontSize = window.innerWidth < 450 ? 12 : 16;
 //
 function createChart() {
   createArr();
@@ -671,7 +672,7 @@ function createChart() {
       },
     ],
   };
-  Chart.defaults.font.size = 16;
+  Chart.defaults.font.size = fontSize;
   Chart.defaults.font.lineHeight = 1.4;
 
   const config = {
