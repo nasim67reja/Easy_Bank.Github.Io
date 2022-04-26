@@ -69,7 +69,7 @@
 }
 .d-nav-list li{
   margin-bottom: 0;
-  padding:  2rem;
+  padding:  1.5rem;
   gap: 2rem;
 }
 .sidebar-icon{
@@ -194,14 +194,14 @@
   }
   #notification{
     margin-top: 1.8rem;
-    transform: translate(-4rem);
+    transform: translate(-3rem,5px);
     width: 3rem;
     height: 3rem;
   }
   .user-img{
     position: fixed;
-    top: 5px;
-    left: 3rem;
+    top: 9px;
+    left: 2rem;
     width: 5rem !important;
     height: 5rem !important;
 
@@ -292,7 +292,13 @@
     right: 2.5rem;
     cursor: pointer;
   }
-
+.header-logo-box svg{
+  transform: translate(-20%,20%) ;
+}
+.hamburger,
+.close{
+  transform: translate(-20%, -20%);
+}
   .hamburger {
     display: inline-block;
   }
@@ -630,6 +636,10 @@
   #pieChart{
     width: 22rem !important;
     transform: translateX(-2rem);
+  }
+  .sidebar-icon {
+    width: 2.6rem;
+    height: 2.6rem;
   }
 }
 
