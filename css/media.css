@@ -521,6 +521,9 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     height: 30rem;
   }
+  .d-card{
+    width: 80%;
+  }
   .transaction-content{
     width: 100%;
   }
@@ -627,5 +630,16 @@
   #pieChart{
     width: 22rem !important;
     transform: translateX(-2rem);
+  }
+}
+
+@media (max-width: 22em) {
+html{
+  font-size: 40%;
+}
+}
+@media (max-width: 18em) {
+  html {
+    font-size: 30%;
   }
 }

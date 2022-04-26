@@ -93,7 +93,7 @@ export const account2 = {
   interestRate: 1.5,
   email: 'jessicadevis21@gmail.com',
   pin: 2222,
-  image: '../images/jessica.png',
+  image: 'images/jessica.png',
 };
 
 export const account3 = {
@@ -143,7 +143,7 @@ export const account3 = {
   interestRate: 0.7,
   email: 'samiulhaque62@gmail.com',
   pin: 3333,
-  image: '../images/samiul.png',
+  image: 'images/samiul.png',
 };
 
 export const account4 = {
@@ -183,7 +183,7 @@ export const account4 = {
   interestRate: 1,
   email: 'sarahsmith66@gmail.com',
   pin: 4444,
-  image: '../images/sarah.png',
+  image: 'images/sarah.png',
 };
 
 export const accounts = [account1, account2, account3, account4];
