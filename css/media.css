@@ -530,10 +530,14 @@
   /*user header */
   .user-header{
     transform: scale(1);
-    padding: 3rem ;
+    padding: 3rem 2rem;
   }
   .d-btn:nth-child(2){
     display: none;
+  }
+  .balance-box p{
+    font-size: 4.4rem;
+    margin-bottom: 1rem;
   }
   /* user info */
   .user-info,.user-data-chart{
@@ -550,6 +554,10 @@
   #pieChart{
     width: 30rem !important;
     height: 15rem !important;
+    
+  }
+  .chart{
+    margin-top: 3rem;
   }
   /* footer navbar */
   .d-nav-list{
