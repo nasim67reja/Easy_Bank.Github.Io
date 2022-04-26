@@ -651,9 +651,11 @@ function createArr() {
     .filter(el => el > 0)
     .reduce((acc, cur) => acc + cur);
 
+  totalOut = currentAcc.amounts.filter(el => el < 0);
   totalOut = Math.abs(
-    currentAcc.amounts.filter(el => el < 0).reduce((acc, cur) => acc + cur)
+    totalOut.length == 0 ? 0 : totalOut.reduce((acc, cur) => acc + cur)
   );
+
   remainningBalance = totalIn - totalOut;
 }
 const fontSize = window.innerWidth < 450 ? 12 : 16;
